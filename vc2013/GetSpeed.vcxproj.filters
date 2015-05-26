@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="MyLib">
+      <UniqueIdentifier>{b1c06e0e-a63a-45b8-8751-eea276415996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{ad579414-9944-45ff-91ce-b1a82cdebffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player">
+      <UniqueIdentifier>{7bde4334-fe03-4fab-8152-a0c5aea963b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{09cca550-d1b2-456d-8c79-51af5b9d34d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Title">
+      <UniqueIdentifier>{fda2c546-e31f-4143-9b75-6c84245f2594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\GameMain">
+      <UniqueIdentifier>{653744eb-a71d-4a20-ade8-976c786f744c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{5201ebe2-a884-47e2-b14f-b75d9c8e67b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Road">
+      <UniqueIdentifier>{235a386c-3d52-4fb5-9a6e-93646801687a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\GetSpeedApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GetSpeedApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="..\src\MyLib\graph.cpp">
+      <Filter>MyLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MyLib\key.cpp">
+      <Filter>MyLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MyLib\mouse.cpp">
+      <Filter>MyLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\object.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Player\player.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\Title\title.cpp">
+      <Filter>Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\Game\game_main.cpp">
+      <Filter>Scene\GameMain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\System\scene_mgr.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\task.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Road\road.cpp">
+      <Filter>Object\Road</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MyLib\ci_app.h">
+      <Filter>MyLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MyLib\graph.h">
+      <Filter>MyLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MyLib\key.h">
+      <Filter>MyLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MyLib\mouse.h">
+      <Filter>MyLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MyLib\noncopyable.h">
+      <Filter>MyLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MyLib\window_size.h">
+      <Filter>MyLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\object.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Player\player.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\Title\title.h">
+      <Filter>Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\Game\game_main.h">
+      <Filter>Scene\GameMain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\System\scene_mgr.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\task.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Road\road.h">
+      <Filter>Object\Road</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
