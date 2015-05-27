@@ -134,10 +134,10 @@ void ly::drawStrokedCube(const Vec3f&  center,
   gl::popModelView();
 }
 
-void ly::drawSoildTriangle(const Vec2f& posA,
+void ly::drawSolidTriangle(const Vec2f& posA,
                            const Vec2f& posB,
                            const Vec2f& posC,
-                           const Color& color) {
+                           const ColorA& color) {
   gl::color(color);
   gl::drawSolidTriangle(posA, posB, posC);
 }
