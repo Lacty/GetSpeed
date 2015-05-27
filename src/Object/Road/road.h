@@ -11,8 +11,6 @@ class Road : public Object {
 private:
   TriMesh m_mesh;
 
-  float ry;
-
 public:
   Road();
   ~Road() = default;

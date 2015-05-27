@@ -79,21 +79,11 @@ Road::Road() {
   m_mesh.recalculateNormals();
 
   gl::enable(GL_CULL_FACE);
-
-  ry = 0.0f;
 }
 
 
 void Road::update() {
-  ry += 0.6f;
 }
 
 void Road::draw() {
-  gl::pushModelView();
-
-  gl::rotate(Vec3f(0, ry, 0));
-  gl::scale(50, 50, 50);
-  gl::draw(m_mesh);
-
-  gl::popModelView();
 }

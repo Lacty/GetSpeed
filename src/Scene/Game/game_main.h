@@ -5,10 +5,12 @@
 
 
 class Road;
+class Player;
 
 class GameMain : public Scene {
 private:
   std::shared_ptr<Road> m_road;
+  std::shared_ptr<Player> m_player;
 
 public:
   GameMain(SceneMgr*);
