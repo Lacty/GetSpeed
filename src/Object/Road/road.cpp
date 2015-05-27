@@ -78,11 +78,6 @@ Road::Road() {
   // í∏ì_ÇÃñ@ê¸ÇCinderÇ…åvéZÇµÇƒÇ‡ÇÁÇ§
   m_mesh.recalculateNormals();
 
-  m_camera = CameraPersp(getWindowWidth(), getWindowHeight(),
-                         35.0f, 0.5, 800.f);
-  m_camera.lookAt(Vec3f(0.f, 0.f, 700.f),
-                  Vec3f(0.f, 0.f, 0.f));
-
   gl::enable(GL_CULL_FACE);
 
   ry = 0.0f;
@@ -94,10 +89,11 @@ void Road::update() {
 }
 
 void Road::draw() {
-  //ly::drawCircle(Vec2f(0, 0), 50, 50, Color::white());
+  gl::pushModelView();
 
-  gl::setMatrices(m_camera);
   gl::rotate(Vec3f(0, ry, 0));
   gl::scale(50, 50, 50);
   gl::draw(m_mesh);
+
+  gl::popModelView();
 }

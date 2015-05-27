@@ -11,8 +11,6 @@ class Road : public Object {
 private:
   TriMesh m_mesh;
 
-  CameraPersp m_camera;
-
   float ry;
 
 public:

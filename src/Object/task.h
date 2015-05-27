@@ -1,5 +1,6 @@
 
 #pragma once
+#include "../MyLib/noncopyable.h"
 #include <string>
 #include <memory>
 #include <list>
@@ -8,7 +9,7 @@
 
 class Object;
 
-class Task {
+class Task : public ly::noncopyable {
 private:
   std::list<std::shared_ptr<Object>> m_list;
   std::map<std::string, std::shared_ptr<Object>> m_map;

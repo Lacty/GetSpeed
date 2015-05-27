@@ -37,6 +37,9 @@
     <Filter Include="Object\Road">
       <UniqueIdentifier>{235a386c-3d52-4fb5-9a6e-93646801687a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Camera">
+      <UniqueIdentifier>{0c8c9b73-9bf8-4ad2-869c-0d71f1ea3504}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\Road\road.h">
       <Filter>Object\Road</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Camera\camera.h">
+      <Filter>Object\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
