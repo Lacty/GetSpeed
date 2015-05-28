@@ -1,7 +1,8 @@
 
 #pragma once
-#include "../object.h"
 #include "../../MyLib/ci_app.h"
+#include "cinder/TriMesh.h"
+#include "../object.h"
 
 
 class Player : public Object {
@@ -11,6 +12,8 @@ private:
     ColorA color;
   };
   std::vector<Face> faces;
+
+  TriMesh m_mesh;
 
   float ry;
 
