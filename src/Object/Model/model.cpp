@@ -2,94 +2,103 @@
 #include "../../MyLib/graph.h"
 #include "cinder/Json.h"
 #include "model.h"
+#include <sstream>
 
 
-void Model::set(const std::string& type) {
-  //JsonTree data(loadAsset("model.json"));
+void Model::set(const std::string& path) {
+  // Jsonからデータ取得
+  JsonTree data(loadAsset("Model/model.json"));
 
-  Vec3f vA(-0.5f, 2.f, -0.5f);
-  Vec3f vB(0.5f, 2.f, -0.5f);
-  Vec3f vC(2.f, -2.5f, -0.5f);
-  Vec3f vD(-2.f, -2.5f, -0.5f);
-  Vec3f vE(-0.5f, -2.5f, 1.f);
-  Vec3f vF(0.5f, -2.5f, 1.f);
-  Vec3f vG(0.5f, -2.5f, -0.5f);
-  Vec3f vH(-0.5f, -2.5f, -0.5f);
 
-  ColorA color(0.6f, 0.6f, 0.6f, 0.6f);
+  //-------------------------------------------------------
+  // ワイヤーフレームの情報
+  //-------------------------------------------------------
 
-  faces.push_back({ { vA }, { vE }, { vD }, { color } }); // 1
-  faces.push_back({ { vA }, { vF }, { vE }, { color } }); // 2
-  faces.push_back({ { vA }, { vB }, { vF }, { color } }); // 3
-  faces.push_back({ { vB }, { vC }, { vF }, { color } }); // 4
-  faces.push_back({ { vA }, { vD }, { vH }, { color } }); // 5
-  faces.push_back({ { vA }, { vH }, { vG }, { color } }); // 6
-  faces.push_back({ { vA }, { vG }, { vB }, { color } }); // 7
-  faces.push_back({ { vB }, { vG }, { vC }, { color } }); // 8
-  faces.push_back({ { vE }, { vH }, { vD }, { color } }); // 9
-  faces.push_back({ { vE }, { vF }, { vH }, { color } }); // 10
-  faces.push_back({ { vF }, { vE }, { vH }, { color } }); // 11
-  faces.push_back({ { vF }, { vC }, { vG }, { color } }); // 12
+  // 頂点データの数を取得
+  int Vertex_Num = data["vertex_num"].getValue<int>();
 
-  Vec3f vertices[] = {
-    vA, vD, vE, // 1
-    vA, vE, vF, // 2
-    vA, vF, vB, // 3
-    vB, vF, vC, // 4
-    vA, vH, vD, // 5
-    vA, vG, vH, // 6
-    vA, vB, vG, // 7
-    vB, vC, vG, // 8
-    vE, vD, vH, // 9
-    vE, vH, vF, // 10
-    vF, vH, vG, // 11
-    vF, vG, vC, // 12
-  };
-  m_mesh.appendVertices(vertices,
-                        sizeof(vertices) / sizeof(vertices[0]));
+  // 頂点データの取得
+  std::vector<Vec3f> v;
+  for (int i = 0; i < Vertex_Num; ++i) {
+    std::ostringstream path;
+    path << "v" << i;
+    v.push_back({ Vec3f(data[path.str()]["x"].getValue<float>(),
+                        data[path.str()]["y"].getValue<float>(),
+                        data[path.str()]["z"].getValue<float>()) });
+  }
 
-  ColorA cA(1.f, 1.f, 1.f, 0.6f);
-  ColorA cB(1.f, 1.f, 1.f, 0.6f);
-  ColorA cC(0.2f, 0.2f, 0.2f, 0.6f);
-  ColorA cD(0.2f, 0.2f, 0.2f, 0.6f);
-  ColorA cE(0.2f, 0.2f, 0.2f, 0.6f);
-  ColorA cF(0.2f, 0.2f, 0.2f, 0.6f);
-  ColorA cG(0.2f, 0.2f, 0.2f, 0.6f);
-  ColorA cH(0.2f, 0.2f, 0.2f, 0.6f);
+  // ワイヤーの色を取得
+  ColorA wire_color(data["wire_color"]["r"].getValue<float>(),
+                    data["wire_color"]["g"].getValue<float>(),
+                    data["wire_color"]["b"].getValue<float>(),
+                    data["wire_color"]["a"].getValue<float>());
 
-  ColorA colors[] = {
-    cA, cD, cE, // 1
-    cA, cE, cF, // 2
-    cA, cF, cB, // 3
-    cB, cF, cC, // 4
-    cA, cH, cD, // 5
-    cA, cG, cH, // 6
-    cA, cB, cG, // 7
-    cB, cC, cG, // 8
-    cE, cD, cH, // 9
-    cE, cF, cH, // 10
-    cF, cH, cG, // 11
-    cF, cG, cC, // 12
-  };
-  m_mesh.appendColorsRgba(colors,
-                          sizeof(colors) / sizeof(colors[0]));
 
-  uint32_t indices[] = {
-    0, 1, 2, // 1
-    3, 4, 5, // 2
-    6, 7, 8, // 3
-    9, 10, 11, // 4
-    12, 13, 14, // 5
-    15, 16, 17, // 6
-    18, 19, 20, // 7
-    21, 22, 23, // 8
-    24, 25, 26, // 9
-    27, 28, 29, // 10
-    30, 31, 32, // 11
-    33, 34, 35, // 12
-  };
-  m_mesh.appendIndices(indices,
-                       sizeof(indices) / sizeof(indices[0]));
+  // Face(ポリゴン)の数を取得
+  int Face_Num = data["face_num"].getValue<int>();
+
+  // Face(ポリゴン)の頂点座標を取得
+  for (int i = 0; i < Face_Num; ++i) {
+    std::ostringstream path;
+    path << "f" << i;
+    faces.push_back({ { Vec3f(v[data[path.str()]["v1"].getValue<int>()]) },
+                      { Vec3f(v[data[path.str()]["v2"].getValue<int>()]) },
+                      { Vec3f(v[data[path.str()]["v3"].getValue<int>()]) },
+                      { wire_color } });
+  }
+
+
+  //-------------------------------------------------------
+  // Meshの情報
+  //-------------------------------------------------------
+
+  // ポリゴンの頂点座標を取得
+  std::vector<Vec3f> vertices;
+  for (int i = 0; i < Face_Num; ++i) {
+    vertices.push_back({ Vec3f(faces[i].v1) });
+    vertices.push_back({ Vec3f(faces[i].v2) });
+    vertices.push_back({ Vec3f(faces[i].v3) });
+  }
+  
+  // 頂点座標の登録
+  m_mesh.appendVertices(&vertices[0], vertices.size());
+
+
+  // 頂点色を取得
+  std::vector<ColorA> color;
+  for (int i = 0; i < Vertex_Num; ++i) {
+    std::ostringstream path;
+    path << "c" << i;
+    color.push_back({ ColorA(data[path.str()]["r"].getValue<float>(),
+                             data[path.str()]["g"].getValue<float>(),
+                             data[path.str()]["b"].getValue<float>(),
+                             data[path.str()]["a"].getValue<float>()) });
+  }
+
+  // ポリゴンの頂点色情報を取得
+  std::vector<ColorA> colors;
+  for (int i = 0; i < Face_Num; ++i) {
+    std::ostringstream path;
+    path << "vc" << i;
+    colors.push_back({ color[data[path.str()]["c1"].getValue<int>()] });
+    colors.push_back({ color[data[path.str()]["c2"].getValue<int>()] });
+    colors.push_back({ color[data[path.str()]["c3"].getValue<int>()] });
+  }
+
+  // 頂点色を登録
+  m_mesh.appendColorsRgba(&colors[0], colors.size());
+
+
+  // ポリゴン結合番号情報
+  std::vector<uint32_t> indices;
+
+  // Face_Num(ポリゴンの数) * 3 => ポリゴンそれぞれの頂点数を足したもの
+  for (int i = 0; i < (Face_Num * 3); ++i) {
+    indices.push_back(i);
+  }
+
+  // 結合番号を登録
+  m_mesh.appendIndices(&indices[0], indices.size());
 }
 
 TriMesh& Model::getMesh() {

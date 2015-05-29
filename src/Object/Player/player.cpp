@@ -7,7 +7,7 @@
 
 Player::Player() {
   m_name = std::string("Player");
-  Model::get().set("a");
+  Model::get().set("model");
 
   ry = 0;
 }
@@ -21,7 +21,7 @@ void Player::draw() {
   gl::pushModelView();
 
   gl::scale(Vec3f(50, 50, 50));
-  gl::rotate(Vec3f(ry, 0, 0));
+  gl::rotate(Vec3f(0, ry, 0));
 
   gl::draw(Model::get().getMesh());
   Model::get().drawWire();
