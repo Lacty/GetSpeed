@@ -111,6 +111,7 @@
     <ClCompile Include="..\src\MyLib\graph.cpp" />
     <ClCompile Include="..\src\MyLib\key.cpp" />
     <ClCompile Include="..\src\MyLib\mouse.cpp" />
+    <ClCompile Include="..\src\Object\Model\model.cpp" />
     <ClCompile Include="..\src\Object\object.cpp" />
     <ClCompile Include="..\src\Object\Player\player.cpp" />
     <ClCompile Include="..\src\Object\Road\road.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="..\src\MyLib\noncopyable.h" />
     <ClInclude Include="..\src\MyLib\window_size.h" />
     <ClInclude Include="..\src\Object\Camera\camera.h" />
+    <ClInclude Include="..\src\Object\Model\model.h" />
     <ClInclude Include="..\src\Object\object.h" />
     <ClInclude Include="..\src\Object\Player\player.h" />
     <ClInclude Include="..\src\Object\Road\road.h" />
@@ -137,6 +139,9 @@
     <ClInclude Include="..\src\Scene\scene.h" />
     <ClInclude Include="..\src\Scene\Title\title.h" />
     <ClInclude Include="..\src\System\scene_mgr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\Model\model.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

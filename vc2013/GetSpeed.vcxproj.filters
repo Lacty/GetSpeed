@@ -40,6 +40,15 @@
     <Filter Include="Object\Camera">
       <UniqueIdentifier>{0c8c9b73-9bf8-4ad2-869c-0d71f1ea3504}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Model">
+      <UniqueIdentifier>{b6c489c0-9b65-4969-a48d-9b654938989d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{58fbc88d-3955-4871-8ce4-edd56cae7789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Model">
+      <UniqueIdentifier>{8e596990-6721-4924-bc15-b1ce21988e0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -83,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Object\Road\road.cpp">
       <Filter>Object\Road</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Model\model.cpp">
+      <Filter>Object\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,10 +146,18 @@
     <ClInclude Include="..\src\Object\Camera\camera.h">
       <Filter>Object\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Object\Model\model.h">
+      <Filter>Object\Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\Model\model.json">
+      <Filter>Assets\Model</Filter>
+    </None>
   </ItemGroup>
 </Project>
