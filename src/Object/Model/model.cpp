@@ -5,9 +5,12 @@
 #include <sstream>
 
 
-void Model::set(const std::string& path) {
+Model::Model(const std::string& path) {
+  std::ostringstream json_path;
+  json_path << "Model/" << path << ".json";
+
   // Json‚©‚çƒf[ƒ^Žæ“¾
-  JsonTree data(loadAsset("Model/model.json"));
+  JsonTree data(loadAsset(json_path.str()));
 
 
   //-------------------------------------------------------
@@ -101,11 +104,11 @@ void Model::set(const std::string& path) {
   m_mesh.appendIndices(&indices[0], indices.size());
 }
 
-TriMesh& Model::getMesh() {
+TriMesh& Model::get() {
   return m_mesh;
 }
 
-void Model::drawWire() {
+void Model::drawWire() const {
   for (auto& face : faces) {
     ly::drawLine(face.v1, face.v2, face.color);
     ly::drawLine(face.v2, face.v3, face.color);

@@ -156,7 +156,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\assets\Model\model.json">
+    <None Include="..\assets\Model\Normal.json">
+      <Filter>Assets\Model</Filter>
+    </None>
+    <None Include="..\assets\Model\Road.json">
       <Filter>Assets\Model</Filter>
     </None>
   </ItemGroup>

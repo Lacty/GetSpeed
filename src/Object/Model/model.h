@@ -6,8 +6,6 @@
 
 class Model {
 private:
-  Model() = default;
-
   struct Face {
     Vec3f v1, v2, v3;
     ColorA color;
@@ -17,12 +15,8 @@ private:
   TriMesh m_mesh;
 
 public:
-  static Model& get() {
-    static Model model;
-    return model;
-  }
+  Model(const std::string&);
 
-  void set(const std::string&);
-  TriMesh& getMesh();
-  void drawWire();
+  TriMesh& get();
+  void drawWire() const;
 };

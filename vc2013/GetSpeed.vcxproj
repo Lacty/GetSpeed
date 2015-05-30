@@ -141,7 +141,8 @@
     <ClInclude Include="..\src\System\scene_mgr.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\assets\Model\model.json" />
+    <None Include="..\assets\Model\Normal.json" />
+    <None Include="..\assets\Model\Road.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
