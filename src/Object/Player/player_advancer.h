@@ -6,9 +6,9 @@
 
 class PlayerAdvancer : public Object {
 private:
-  Vec3f pos;
-  Vec3f speed;
-  Vec3f velocity;
+  Vec3f m_pos;
+  Vec3f m_speed;
+  Vec3f m_velocity;
 
   float Max_Velocity = 10000.f;
   float Min_Velocity = 0.f;

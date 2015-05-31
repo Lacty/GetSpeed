@@ -4,9 +4,9 @@
 
 
 PlayerAdvancer::PlayerAdvancer() :
-pos(Vec3f::zero()),
-speed(Vec3f::zero()),
-velocity(Vec3f::zero()) {
+m_pos(Vec3f::zero()),
+m_speed(Vec3f::zero()),
+m_velocity(Vec3f::zero()) {
   m_name = std::string("PlayerAdvancer");
 }
 
@@ -17,24 +17,27 @@ velocity(Vec3f::zero()) {
 // スピードが0~400の間 推進力を10
 // 400~700の間 推進力を7
 void PlayerAdvancer::speedManager() {
-  if ((velocity.z >= Min_Velocity) && (velocity.z < (Max_Velocity / 10) * 4)) {
-    speed.z = Max_Speed;
-  } else if ((velocity.z >= (Max_Velocity / 10) * 4) && (velocity.z < (Max_Velocity / 10) * 7)) {
-    speed.z = Max_Speed / 3 * 2;
-  } else if ((velocity.z >= (Max_Velocity / 10) * 7) && (velocity.z < (Max_Velocity / 10) * 9)) {
-    speed.z = Max_Speed / 4;
-  } else if ((velocity.z >= (Max_Velocity / 10)) && (velocity.z < Max_Velocity)) {
-    speed.z = Max_Speed / 10;
+  if ((m_velocity.z >= Min_Velocity) && (m_velocity.z < (Max_Velocity / 10) * 4)) {
+    m_speed.z = Max_Speed;
+  } else if ((m_velocity.z >= (Max_Velocity / 10) * 4) && (m_velocity.z < (Max_Velocity / 10) * 7)) {
+    m_speed.z = Max_Speed / 3 * 2;
+  } else if ((m_velocity.z >= (Max_Velocity / 10) * 7) && (m_velocity.z < (Max_Velocity / 10) * 9)) {
+    m_speed.z = Max_Speed / 4;
+  } else if ((m_velocity.z >= (Max_Velocity / 10)) && (m_velocity.z < Max_Velocity)) {
+    m_speed.z = Max_Speed / 10;
   }
 }
 
 void PlayerAdvancer::move() {
   if (Key::get().isPress(KeyEvent::KEY_w)) {
-    velocity.z += speed.z;
-  } else if (velocity.z > 0) {
-    velocity.z *= 0.98f;
+    m_velocity.z += m_speed.z;
+  } else if (m_velocity.z > 1) {
+    m_velocity.z *= 0.98f;
+    if (m_velocity.z <= 1) {
+      m_velocity.z = 0.0f;
+    }
   }
-  pos.z += velocity.z;
+  m_pos.z -= m_velocity.z;
 }
 
 void PlayerAdvancer::update() {
@@ -43,9 +46,9 @@ void PlayerAdvancer::update() {
 }
 
 void PlayerAdvancer::draw() {
-  console() << velocity.z << std::endl;
+  console() << "velocity.z = " << m_velocity.z << std::endl;
 }
 
 Vec3f& PlayerAdvancer::getPos() {
-  return pos;
+  return m_pos;
 }

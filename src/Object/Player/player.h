@@ -7,11 +7,13 @@
 
 
 class PlayerAdvancer;
+class PlayerRotater;
 
 class Player : public Object {
 private:
   Model m_model;
-  std::shared_ptr<PlayerAdvancer> adv;
+  std::shared_ptr<PlayerAdvancer> advance;
+  std::shared_ptr<PlayerRotater> rotate;
 
   float ry;
 
