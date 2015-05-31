@@ -96,6 +96,9 @@
     <ClCompile Include="..\src\Object\Model\model.cpp">
       <Filter>Object\Model</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Object\Player\player_advancer.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\Model\model.h">
       <Filter>Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Player\player_advancer.h">
+      <Filter>Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
