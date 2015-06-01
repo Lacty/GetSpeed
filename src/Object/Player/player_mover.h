@@ -10,7 +10,7 @@ private:
 
   // ˆÚ“®‚ÍŠï”‚ğg‚¤‚Æƒkƒ‹ƒkƒ‹“®‚­
   // ‹ô”‚¾‚ÆƒJƒN‚Â‚¢‚Ä‚¢‚é‚æ‚¤‚ÉŒ©‚¦‚é
-  const float Move_Speed = 7;
+  const float Move_Speed = 3;
 
   void move();
   void bound();

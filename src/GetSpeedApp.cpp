@@ -45,6 +45,7 @@ void GetSpeedApp::setup() {
   Key::get();
   Task::getInstance();
   Rand::randomize();
+
   gl::enableAlphaBlending();
 }
 

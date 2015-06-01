@@ -11,7 +11,7 @@ Player::Player() :
 m_model("Normal"),
 m_pos(Vec3f::zero()),
 m_rotate(Vec3f(-90, 0, 0)),
-m_scale(Vec3f(40, 40, 40))
+m_scale(Vec3f(8, 8, 8))
 {
   m_name  = std::string("Player");
   advance = std::dynamic_pointer_cast<PlayerAdvancer>(Task::getInstance().find("PlayerAdvancer"));
@@ -23,7 +23,7 @@ m_scale(Vec3f(40, 40, 40))
 void Player::update() {
   m_pos = Vec3f(move->getPos(),
                 0.f,
-                advance->getPos() * 0.001f);
+                advance->getPos() * 0.01f);
 
   m_rotate = rotate->getRotate();
 }
@@ -39,4 +39,9 @@ void Player::draw() {
   m_model.drawWire();
 
   gl::popModelView();
+}
+
+
+Vec3f& Player::getPos() {
+  return m_pos;
 }

@@ -27,4 +27,6 @@ public:
 
   void update();
   void draw();
+
+  Vec3f& getPos();
 };

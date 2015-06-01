@@ -33,13 +33,23 @@ Scene(mgr)
   m_player = std::make_shared<Player>();
   Task::getInstance().add(m_player->getName(), m_player);
 
-  GameCamera::getInstance().create(CameraPersp(getWindowWidth(), getWindowHeight(), 35.f, 0.5f, 1000.f));
-  GameCamera::getInstance().cam().lookAt(Vec3f(0.f, 0.f, 700.f), Vec3f(0.f, 0.f, 0.f));
+  //-------------------------------------------------------
+  // Camera‰Šú‰»
+
+  GameCamera::getInstance().create(CameraPersp(getWindowWidth(), getWindowHeight(), 35.f, 0.5f, 5000.f));
+  GameCamera::getInstance().cam().lookAt(Vec3f(0.f, 100.f, 300.f), Vec3f(0.f, 0.f, -500.f));
 }
 
 
 void GameMain::update() {
   Task::getInstance().update();
+
+  GameCamera::getInstance().cam().lookAt(Vec3f(m_player->getPos().x * 0.9,
+                                               m_player->getPos().y + 40.f,
+                                               m_player->getPos().z + 100.f),
+                                         Vec3f(m_player->getPos().x / 1.2f,
+                                               -100.f,
+                                               m_player->getPos().z -500.f));
 }
 
 void GameMain::draw() {
