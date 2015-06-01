@@ -25,6 +25,8 @@ void PlayerAdvancer::speedManager() {
     m_speed.z = Max_Speed / 4;
   } else if ((m_velocity.z >= (Max_Velocity / 10)) && (m_velocity.z < Max_Velocity)) {
     m_speed.z = Max_Speed / 10;
+  } else if (m_velocity.z >= Max_Velocity) {
+    m_speed.z = Max_Speed / 100;
   }
 }
 
@@ -33,7 +35,7 @@ void PlayerAdvancer::move() {
     m_velocity.z += m_speed.z;
   } else if (m_velocity.z > 1) {
     m_velocity.z *= 0.98f;
-    if (m_velocity.z <= 1) {
+    if (m_velocity.z <= 30) {
       m_velocity.z = 0.0f;
     }
   }

@@ -15,6 +15,9 @@ void Road::update() {}
 void Road::draw() {
   gl::pushModelView();
 
+  gl::enableDepthRead();
+
+
   gl::rotate(Vec3f(-90, 0, 0));
   gl::scale(Vec3f(100, 100, 100));
 
@@ -27,6 +30,9 @@ void Road::draw() {
     }
     gl::popModelView();
   }
+
+
+  gl::disableDepthRead();
 
   gl::popModelView();
 }

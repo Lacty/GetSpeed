@@ -29,9 +29,9 @@ void Player::update() {
 }
 
 void Player::draw() {
+  gl::translate(m_pos);
   gl::pushModelView();
 
-  gl::translate(m_pos);
   gl::scale(m_scale);
   gl::rotate(m_rotate);
 
