@@ -7,6 +7,7 @@
 #include "../../Object/Road/road.h"
 #include "../../Object/Player/player.h"
 #include "../../Object/Player/player_advancer.h"
+#include "../../Object/Player/player_mover.h"
 #include "../../Object/Player/player_rotater.h"
 #include "../../Object/Camera/camera.h"
 
@@ -22,6 +23,9 @@ Scene(mgr)
 
   m_player_advancer = std::make_shared<PlayerAdvancer>();
   Task::getInstance().add(m_player_advancer->getName(), m_player_advancer);
+
+  m_player_mover = std::make_shared<PlayerMover>();
+  Task::getInstance().add(m_player_mover->getName(), m_player_mover);
 
   m_player_rotater = std::make_shared<PlayerRotater>();
   Task::getInstance().add(m_player_rotater->getName(), m_player_rotater);

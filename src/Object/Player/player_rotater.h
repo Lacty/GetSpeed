@@ -8,9 +8,9 @@ class PlayerRotater : public Object {
 private:
   Vec3f m_rotate;
 
-  const float Rot_Speed = 0.6f;
-  const float Bound_Left = -20.f;
-  const float Bound_Right = 20.f;
+  const float Rot_Speed = 1.4f;
+  const float Bound_Left = -14.f;
+  const float Bound_Right = 14.f;
 
   void lean();
   void bound();

@@ -49,6 +49,6 @@ void PlayerAdvancer::draw() {
   console() << "velocity.z = " << m_velocity.z << std::endl;
 }
 
-Vec3f& PlayerAdvancer::getPos() {
-  return m_pos;
+float& PlayerAdvancer::getPos() {
+  return m_pos.z;
 }

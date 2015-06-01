@@ -102,6 +102,9 @@
     <ClCompile Include="..\src\Object\Player\player_rotater.cpp">
       <Filter>Object\Player</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Object\Player\player_mover.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
@@ -159,6 +162,9 @@
       <Filter>Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Object\Player\player_rotater.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Player\player_mover.h">
       <Filter>Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
