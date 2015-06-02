@@ -27,4 +27,5 @@ public:
   void draw();
 
   float& getPos();
+  float& getSpeed();
 };

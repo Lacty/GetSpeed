@@ -29,4 +29,5 @@ public:
   void draw();
 
   Vec3f& getPos();
+  float& getSpeed();
 };

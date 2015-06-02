@@ -24,9 +24,9 @@ void PlayerAdvancer::speedManager() {
   } else if ((m_velocity.z >= (Max_Velocity / 10) * 7) && (m_velocity.z < (Max_Velocity / 10) * 9)) {
     m_speed.z = Max_Speed / 4;
   } else if ((m_velocity.z >= (Max_Velocity / 10)) && (m_velocity.z < Max_Velocity)) {
-    m_speed.z = Max_Speed / 10;
+    m_speed.z = Max_Speed / 20;
   } else if (m_velocity.z >= Max_Velocity) {
-    m_speed.z = Max_Speed / 200;
+    m_speed.z = Max_Speed / 100;
   }
 }
 
@@ -59,4 +59,8 @@ void PlayerAdvancer::draw() {
 
 float& PlayerAdvancer::getPos() {
   return m_pos.z;
+}
+
+float& PlayerAdvancer::getSpeed() {
+  return m_velocity.z;
 }

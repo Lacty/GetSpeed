@@ -10,7 +10,7 @@ class Player;
 
 class Road : public Object {
 private:
-  enum { Model_Max = 10 };
+  enum { Model_Max = 20 };
   Model m_model;
 
   Vec3f m_rotate;

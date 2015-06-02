@@ -49,6 +49,9 @@
     <Filter Include="Assets\Model">
       <UniqueIdentifier>{8e596990-6721-4924-bc15-b1ce21988e0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Meter">
+      <UniqueIdentifier>{434c32ab-2dc5-4021-9c55-07cfec1fdf80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Object\Player\player_mover.cpp">
       <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Meter\meter.cpp">
+      <Filter>Object\Meter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\Player\player_mover.h">
       <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Meter\meter.h">
+      <Filter>Object\Meter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

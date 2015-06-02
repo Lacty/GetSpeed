@@ -9,6 +9,7 @@
 #include "../../Object/Player/player_advancer.h"
 #include "../../Object/Player/player_mover.h"
 #include "../../Object/Player/player_rotater.h"
+#include "../../Object/Meter/meter.h"
 #include "../../Object/Camera/camera.h"
 
 
@@ -32,6 +33,9 @@ Scene(mgr)
 
   m_player = std::make_shared<Player>();
   Task::getInstance().add(m_player->getName(), m_player);
+
+  m_meter = std::make_shared<Meter>();
+  Task::getInstance().add(m_meter->getName(), m_meter);
 
   //-------------------------------------------------------
   // Camera‰Šú‰»

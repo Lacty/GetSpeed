@@ -45,3 +45,7 @@ void Player::draw() {
 Vec3f& Player::getPos() {
   return m_pos;
 }
+
+float& Player::getSpeed() {
+  return advance->getSpeed();
+}
