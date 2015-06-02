@@ -17,7 +17,7 @@ private:
   Vec3f m_scale;
   Vec3f m_pos[Model_Max];
 
-  std::shared_ptr<Player> player;
+  std::shared_ptr<Player> p_player;
 
 public:
   Road();

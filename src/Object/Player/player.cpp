@@ -14,18 +14,18 @@ m_rotate(Vec3f(-90, 0, 0)),
 m_scale(Vec3f(8, 8, 8))
 {
   m_name  = std::string("Player");
-  advance = std::dynamic_pointer_cast<PlayerAdvancer>(Task::getInstance().find("PlayerAdvancer"));
-  move    = std::dynamic_pointer_cast<PlayerMover>(Task::getInstance().find("PlayerMover"));
-  rotate  = std::dynamic_pointer_cast<PlayerRotater>(Task::getInstance().find("PlayerRotater"));
+  p_advance = std::dynamic_pointer_cast<PlayerAdvancer>(Task::getInstance().find("PlayerAdvancer"));
+  p_move    = std::dynamic_pointer_cast<PlayerMover>(Task::getInstance().find("PlayerMover"));
+  p_rotate  = std::dynamic_pointer_cast<PlayerRotater>(Task::getInstance().find("PlayerRotater"));
 }
 
 
 void Player::update() {
-  m_pos = Vec3f(move->getPos(),
+  m_pos = Vec3f(p_move->getPos(),
                 0.f,
-                advance->getPos() * 0.01f);
+                p_advance->getPos() * 0.01f);
 
-  m_rotate = rotate->getRotate();
+  m_rotate = p_rotate->getRotate();
 }
 
 void Player::draw() {
@@ -47,5 +47,5 @@ Vec3f& Player::getPos() {
 }
 
 float& Player::getSpeed() {
-  return advance->getSpeed();
+  return p_advance->getSpeed();
 }

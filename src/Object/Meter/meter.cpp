@@ -13,19 +13,19 @@ m_scale(Vec3f(0.4f, 0.4f, 0.4f)),
 m_font(std::make_unique<Font>(Font("", 60)))
 {
   m_name = std::string("Meter");
-  player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
+  p_player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
 }
 
 Meter::~Meter() {}
 
 
 void Meter::update() {
-  m_pos = Vec3f(player->getPos());
+  m_pos = Vec3f(p_player->getPos());
 }
 
 void Meter::draw() {
   std::ostringstream speed;
-  speed << int(player->getSpeed());
+  speed << int(p_player->getSpeed());
 
   gl::pushModelView();
   {

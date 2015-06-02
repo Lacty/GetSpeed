@@ -18,11 +18,11 @@ m_scale(100, 100, 100)
 
 
 void Road::update() {
-  if (player == nullptr) {
-    player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
+  if (p_player == nullptr) {
+    p_player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
   }
   for (int i = 0; i < Model_Max; ++i) {
-    if (m_pos[i].y * -100 -100 > player->getPos().z) {
+    if (m_pos[i].y * -100 -100 > p_player->getPos().z) {
       m_pos[i].y += Model_Max * 2;
     }
   }

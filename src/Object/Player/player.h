@@ -13,9 +13,9 @@ class PlayerRotater;
 class Player : public Object {
 private:
   Model m_model;
-  std::shared_ptr<PlayerAdvancer> advance;
-  std::shared_ptr<PlayerMover> move;
-  std::shared_ptr<PlayerRotater> rotate;
+  std::shared_ptr<PlayerAdvancer> p_advance;
+  std::shared_ptr<PlayerMover>    p_move;
+  std::shared_ptr<PlayerRotater>  p_rotate;
 
   Vec3f m_pos;
   Vec3f m_rotate;
