@@ -17,6 +17,7 @@ private:
 
   void speedManager();
   void move();
+  void boost();
 
 public:
   PlayerAdvancer();

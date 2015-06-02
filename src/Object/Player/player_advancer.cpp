@@ -26,12 +26,13 @@ void PlayerAdvancer::speedManager() {
   } else if ((m_velocity.z >= (Max_Velocity / 10)) && (m_velocity.z < Max_Velocity)) {
     m_speed.z = Max_Speed / 10;
   } else if (m_velocity.z >= Max_Velocity) {
-    m_speed.z = Max_Speed / 100;
+    m_speed.z = Max_Speed / 200;
   }
 }
 
 void PlayerAdvancer::move() {
   if (Key::get().isPress(KeyEvent::KEY_w)) {
+    boost();
     m_velocity.z += m_speed.z;
   } else if (m_velocity.z > 1) {
     m_velocity.z *= 0.98f;
@@ -40,6 +41,11 @@ void PlayerAdvancer::move() {
     }
   }
   m_pos.z -= m_velocity.z;
+}
+
+void PlayerAdvancer::boost() {
+  if (!Key::get().isPush(KeyEvent::KEY_LSHIFT)) return;
+  m_speed.z = 500;
 }
 
 void PlayerAdvancer::update() {

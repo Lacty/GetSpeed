@@ -37,7 +37,7 @@ Scene(mgr)
   // Cameraèâä˙âª
 
   GameCamera::getInstance().create(CameraPersp(getWindowWidth(), getWindowHeight(), 35.f, 0.5f, 5000.f));
-  GameCamera::getInstance().cam().lookAt(Vec3f(0.f, 100.f, 300.f), Vec3f(0.f, 0.f, -500.f));
+  //GameCamera::getInstance().cam().lookAt(Vec3f(0.f, 100.f, 300.f), Vec3f(0.f, 0.f, -500.f));
 }
 
 

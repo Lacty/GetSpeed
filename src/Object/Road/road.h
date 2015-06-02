@@ -3,11 +3,21 @@
 #include "../../MyLib/ci_app.h"
 #include "../Model/model.h"
 #include "../object.h"
+#include <memory>
 
+
+class Player;
 
 class Road : public Object {
 private:
+  enum { Model_Max = 10 };
   Model m_model;
+
+  Vec3f m_rotate;
+  Vec3f m_scale;
+  Vec3f m_pos[Model_Max];
+
+  std::shared_ptr<Player> player;
 
 public:
   Road();
