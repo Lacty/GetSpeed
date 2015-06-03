@@ -119,6 +119,7 @@
     <ClCompile Include="..\src\Object\Player\player_advancer.cpp" />
     <ClCompile Include="..\src\Object\Player\player_mover.cpp" />
     <ClCompile Include="..\src\Object\Player\player_rotater.cpp" />
+    <ClCompile Include="..\src\Object\Ring\stage_ring.cpp" />
     <ClCompile Include="..\src\Object\Road\road.cpp" />
     <ClCompile Include="..\src\Object\task.cpp" />
     <ClCompile Include="..\src\Scene\Game\game_main.cpp" />
@@ -143,6 +144,7 @@
     <ClInclude Include="..\src\Object\Player\player_advancer.h" />
     <ClInclude Include="..\src\Object\Player\player_mover.h" />
     <ClInclude Include="..\src\Object\Player\player_rotater.h" />
+    <ClInclude Include="..\src\Object\Ring\stage_ring.h" />
     <ClInclude Include="..\src\Object\Road\road.h" />
     <ClInclude Include="..\src\Object\task.h" />
     <ClInclude Include="..\src\Scene\Game\game_main.h" />

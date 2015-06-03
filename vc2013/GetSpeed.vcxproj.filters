@@ -58,6 +58,9 @@
     <Filter Include="Object\Meter\Odo">
       <UniqueIdentifier>{9f04a23a-9f34-4330-884f-374a7b420606}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Ring">
+      <UniqueIdentifier>{c48a4b1c-863e-44b4-86c8-9a094fc64dc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -119,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Object\Meter\Odo\odo_meter.cpp">
       <Filter>Object\Meter\Odo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Ring\stage_ring.cpp">
+      <Filter>Object\Ring</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\Meter\Odo\odo_meter.h">
       <Filter>Object\Meter\Odo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Ring\stage_ring.h">
+      <Filter>Object\Ring</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

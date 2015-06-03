@@ -21,6 +21,9 @@ private:
   Vec3f m_rotate;
   Vec3f m_scale;
 
+  float m_angle;
+  float& pitch();
+
 public:
   Player();
   ~Player() = default;

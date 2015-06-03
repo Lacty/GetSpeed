@@ -11,6 +11,7 @@
 #include "../../Object/Player/player_rotater.h"
 #include "../../Object/Meter/Speed/speed_meter.h"
 #include "../../Object/Meter/Odo/odo_meter.h"
+#include "../../Object/Ring/stage_ring.h"
 
 #include "../../Object/Camera/camera.h"
 
@@ -41,6 +42,9 @@ Scene(mgr)
 
   m_odo_meter = std::make_shared<OdoMeter>();
   Task::getInstance().add(m_odo_meter->getName(), m_odo_meter);
+
+  m_stage_ring = std::make_shared<StageRing>();
+  Task::getInstance().add(m_stage_ring->getName(), m_stage_ring);
 
   //-------------------------------------------------------
   // Camera‰Šú‰»

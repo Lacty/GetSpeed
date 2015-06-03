@@ -11,7 +11,8 @@ Player::Player() :
 m_model("Normal"),
 m_pos(Vec3f::zero()),
 m_rotate(Vec3f(-90, 0, 0)),
-m_scale(Vec3f(8, 8, 8))
+m_scale(Vec3f(8, 8, 8)),
+m_angle(0.0f)
 {
   m_name  = std::string("Player");
   p_advance = std::dynamic_pointer_cast<PlayerAdvancer>(Task::getInstance().find("PlayerAdvancer"));
@@ -20,9 +21,15 @@ m_scale(Vec3f(8, 8, 8))
 }
 
 
+float& Player::pitch() {
+  m_angle += 0.06f;
+  float sin = std::sin(m_angle) * 0.4;
+  return sin;
+}
+
 void Player::update() {
   m_pos = Vec3f(p_move->getPos(),
-                0.f,
+                0.0f,
                 p_advance->getPos() * 0.01f);
 
   m_rotate = p_rotate->getRotate();
@@ -31,7 +38,9 @@ void Player::update() {
 void Player::draw() {
   gl::pushModelView();
 
-  gl::translate(m_pos);
+  gl::translate(m_pos.x,
+                m_pos.y + pitch(),
+                m_pos.z);
   gl::scale(m_scale);
   gl::rotate(m_rotate);
 

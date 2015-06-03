@@ -11,6 +11,7 @@ class PlayerMover;
 class PlayerRotater;
 class SpeedMeter;
 class OdoMeter;
+class StageRing;
 
 class GameMain : public Scene {
 private:
@@ -21,6 +22,7 @@ private:
   std::shared_ptr<PlayerRotater> m_player_rotater;
   std::shared_ptr<SpeedMeter> m_speed_meter;
   std::shared_ptr<OdoMeter> m_odo_meter;
+  std::shared_ptr<StageRing> m_stage_ring;
 
 public:
   GameMain(SceneMgr*);
