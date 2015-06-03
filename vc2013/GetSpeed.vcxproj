@@ -111,7 +111,8 @@
     <ClCompile Include="..\src\MyLib\graph.cpp" />
     <ClCompile Include="..\src\MyLib\key.cpp" />
     <ClCompile Include="..\src\MyLib\mouse.cpp" />
-    <ClCompile Include="..\src\Object\Meter\meter.cpp" />
+    <ClCompile Include="..\src\Object\Meter\Odo\odo_meter.cpp" />
+    <ClCompile Include="..\src\Object\Meter\Speed\speed_meter.cpp" />
     <ClCompile Include="..\src\Object\Model\model.cpp" />
     <ClCompile Include="..\src\Object\object.cpp" />
     <ClCompile Include="..\src\Object\Player\player.cpp" />
@@ -134,7 +135,8 @@
     <ClInclude Include="..\src\MyLib\noncopyable.h" />
     <ClInclude Include="..\src\MyLib\window_size.h" />
     <ClInclude Include="..\src\Object\Camera\camera.h" />
-    <ClInclude Include="..\src\Object\Meter\meter.h" />
+    <ClInclude Include="..\src\Object\Meter\Odo\odo_meter.h" />
+    <ClInclude Include="..\src\Object\Meter\Speed\speed_meter.h" />
     <ClInclude Include="..\src\Object\Model\model.h" />
     <ClInclude Include="..\src\Object\object.h" />
     <ClInclude Include="..\src\Object\Player\player.h" />

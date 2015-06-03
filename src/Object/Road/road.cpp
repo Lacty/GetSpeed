@@ -22,7 +22,7 @@ void Road::update() {
     p_player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
   }
   for (int i = 0; i < Model_Max; ++i) {
-    if (m_pos[i].y * -100 -100 > p_player->getPos().z) {
+    if (m_pos[i].y * -100 -150 > p_player->getPos().z) {
       m_pos[i].y += Model_Max * 2;
     }
   }

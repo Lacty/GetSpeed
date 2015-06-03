@@ -52,6 +52,12 @@
     <Filter Include="Object\Meter">
       <UniqueIdentifier>{434c32ab-2dc5-4021-9c55-07cfec1fdf80}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Meter\Speed">
+      <UniqueIdentifier>{01ea94be-6805-4305-bde0-f2aeb8c7eb46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Meter\Odo">
+      <UniqueIdentifier>{9f04a23a-9f34-4330-884f-374a7b420606}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -108,8 +114,11 @@
     <ClCompile Include="..\src\Object\Player\player_mover.cpp">
       <Filter>Object\Player</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Object\Meter\meter.cpp">
-      <Filter>Object\Meter</Filter>
+    <ClCompile Include="..\src\Object\Meter\Speed\speed_meter.cpp">
+      <Filter>Object\Meter\Speed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Meter\Odo\odo_meter.cpp">
+      <Filter>Object\Meter\Odo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,8 +182,11 @@
     <ClInclude Include="..\src\Object\Player\player_mover.h">
       <Filter>Object\Player</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Object\Meter\meter.h">
-      <Filter>Object\Meter</Filter>
+    <ClInclude Include="..\src\Object\Meter\Speed\speed_meter.h">
+      <Filter>Object\Meter\Speed</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Meter\Odo\odo_meter.h">
+      <Filter>Object\Meter\Odo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

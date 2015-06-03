@@ -9,7 +9,9 @@
 #include "../../Object/Player/player_advancer.h"
 #include "../../Object/Player/player_mover.h"
 #include "../../Object/Player/player_rotater.h"
-#include "../../Object/Meter/meter.h"
+#include "../../Object/Meter/Speed/speed_meter.h"
+#include "../../Object/Meter/Odo/odo_meter.h"
+
 #include "../../Object/Camera/camera.h"
 
 
@@ -34,14 +36,16 @@ Scene(mgr)
   m_player = std::make_shared<Player>();
   Task::getInstance().add(m_player->getName(), m_player);
 
-  m_meter = std::make_shared<Meter>();
-  Task::getInstance().add(m_meter->getName(), m_meter);
+  m_speed_meter = std::make_shared<SpeedMeter>();
+  Task::getInstance().add(m_speed_meter->getName(), m_speed_meter);
+
+  m_odo_meter = std::make_shared<OdoMeter>();
+  Task::getInstance().add(m_odo_meter->getName(), m_odo_meter);
 
   //-------------------------------------------------------
   // Cameraèâä˙âª
 
   GameCamera::getInstance().create(CameraPersp(getWindowWidth(), getWindowHeight(), 35.f, 0.5f, 5000.f));
-  //GameCamera::getInstance().cam().lookAt(Vec3f(0.f, 100.f, 300.f), Vec3f(0.f, 0.f, -500.f));
 }
 
 
