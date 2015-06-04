@@ -61,6 +61,9 @@
     <Filter Include="Object\Ring">
       <UniqueIdentifier>{c48a4b1c-863e-44b4-86c8-9a094fc64dc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Start">
+      <UniqueIdentifier>{72bd9e20-e76a-4941-aeb1-58f2970f1073}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -125,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Object\Ring\stage_ring.cpp">
       <Filter>Object\Ring</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Start\starter.cpp">
+      <Filter>Object\Start</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\Ring\stage_ring.h">
       <Filter>Object\Ring</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Start\starter.h">
+      <Filter>Object\Start</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

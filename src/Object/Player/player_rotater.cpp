@@ -13,10 +13,10 @@ PlayerRotater::~PlayerRotater() {}
 
 
 void PlayerRotater::lean() {
-  if (Key::get().isPress(KeyEvent::KEY_a)) {
-    m_rotate.y -= Rot_Speed;
-  } else if (Key::get().isPress(KeyEvent::KEY_d)) {
+  if (Key::get().isPress(KeyEvent::KEY_d)) {
     m_rotate.y += Rot_Speed;
+  } else if (Key::get().isPress(KeyEvent::KEY_a)) {
+    m_rotate.y -= Rot_Speed;
   } else
   {
     m_rotate.y *= 0.93f;

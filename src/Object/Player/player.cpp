@@ -22,7 +22,7 @@ m_angle(0.0f)
 
 
 float& Player::pitch() {
-  m_angle += 0.06f;
+  m_angle += 0.08f;
   float sin = std::sin(m_angle) * 0.4;
   return sin;
 }

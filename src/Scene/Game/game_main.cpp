@@ -53,18 +53,31 @@ Scene(mgr)
 }
 
 
-void GameMain::update() {
-  Task::getInstance().update();
+void GameMain::cameraMove() {
+  Vec3f eye;
+  Vec3f target;
 
-  GameCamera::getInstance().cam().lookAt(Vec3f(m_player->getPos().x * 0.9,
-                                               m_player->getPos().y + 40.f,
-                                               m_player->getPos().z + 100.f),
-                                         Vec3f(m_player->getPos().x / 1.2f,
-                                               -100.f,
-                                               m_player->getPos().z -500.f));
+  eye = Vec3f(m_player->getPos().x * 0.9,
+              m_player->getPos().y + 40.f,
+              m_player->getPos().z + 100.f);
+
+  target = Vec3f(m_player->getPos().x / 1.2f,
+                 -100.f,
+                 m_player->getPos().z - 500.f);
+
+  GameCamera::getInstance().cam().lookAt(eye, target);
+}
+
+void GameMain::update() {
+  m_starter.update();
+  if (m_starter.isStart()) {
+    Task::getInstance().update();
+  }
+  cameraMove();
 }
 
 void GameMain::draw() {
   gl::setMatrices(GameCamera::getInstance().cam());
   Task::getInstance().draw();
+  m_starter.draw();
 }

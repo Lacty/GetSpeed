@@ -13,6 +13,10 @@ m_font(std::make_unique<Font>(Font("", 60)))
 {
   m_name = std::string("OdoMeter");
   p_player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
+
+  Vec3f offset = Vec3f(0, 78, -600);
+  Vec3f pos = Vec3f(0, 0, p_player->getPos().z);
+  m_pos = offset + pos;
 }
 
 OdoMeter::~OdoMeter() {}

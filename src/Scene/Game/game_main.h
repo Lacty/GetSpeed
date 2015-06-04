@@ -1,5 +1,6 @@
 
 #pragma once
+#include "../../Object/Start/starter.h"
 #include "../scene.h"
 #include <memory>
 
@@ -23,6 +24,10 @@ private:
   std::shared_ptr<SpeedMeter> m_speed_meter;
   std::shared_ptr<OdoMeter> m_odo_meter;
   std::shared_ptr<StageRing> m_stage_ring;
+
+  Starter m_starter;
+
+  void cameraMove();
 
 public:
   GameMain(SceneMgr*);
