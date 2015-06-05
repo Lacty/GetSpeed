@@ -13,6 +13,7 @@
 #include "../../Object/Meter/Odo/odo_meter.h"
 #include "../../Object/Ring/stage_ring.h"
 #include "../../Object/TimeCount/time_counter.h"
+#include "../../Object/Booster/booster.h"
 
 #include "../../Object/Camera/camera.h"
 
@@ -49,6 +50,9 @@ Scene(mgr)
 
   m_counter = std::make_shared<TimeCounter>();
   Task::getInstance().add(m_counter->getName(), m_counter);
+
+  m_booster = std::make_shared<Booster>();
+  Task::getInstance().add(m_booster->getName(), m_booster);
 
   //-------------------------------------------------------
   // Camera‰Šú‰»

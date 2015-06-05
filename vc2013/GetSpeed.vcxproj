@@ -107,10 +107,12 @@
     <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Collision\collision.cpp" />
     <ClCompile Include="..\src\GetSpeedApp.cpp" />
     <ClCompile Include="..\src\MyLib\graph.cpp" />
     <ClCompile Include="..\src\MyLib\key.cpp" />
     <ClCompile Include="..\src\MyLib\mouse.cpp" />
+    <ClCompile Include="..\src\Object\Booster\booster.cpp" />
     <ClCompile Include="..\src\Object\Meter\Odo\odo_meter.cpp" />
     <ClCompile Include="..\src\Object\Meter\Speed\speed_meter.cpp" />
     <ClCompile Include="..\src\Object\Model\model.cpp" />
@@ -131,12 +133,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h" />
+    <ClInclude Include="..\src\Collision\collision.h" />
     <ClInclude Include="..\src\MyLib\ci_app.h" />
     <ClInclude Include="..\src\MyLib\graph.h" />
     <ClInclude Include="..\src\MyLib\key.h" />
     <ClInclude Include="..\src\MyLib\mouse.h" />
     <ClInclude Include="..\src\MyLib\noncopyable.h" />
     <ClInclude Include="..\src\MyLib\window_size.h" />
+    <ClInclude Include="..\src\Object\Booster\booster.h" />
     <ClInclude Include="..\src\Object\Camera\camera.h" />
     <ClInclude Include="..\src\Object\Meter\Odo\odo_meter.h" />
     <ClInclude Include="..\src\Object\Meter\Speed\speed_meter.h" />
@@ -151,6 +155,7 @@
     <ClInclude Include="..\src\Object\Start\starter.h" />
     <ClInclude Include="..\src\Object\task.h" />
     <ClInclude Include="..\src\Object\TimeCount\time_counter.h" />
+    <ClInclude Include="..\src\road_size.h" />
     <ClInclude Include="..\src\Scene\Game\game_main.h" />
     <ClInclude Include="..\src\Scene\scene.h" />
     <ClInclude Include="..\src\Scene\Title\title.h" />

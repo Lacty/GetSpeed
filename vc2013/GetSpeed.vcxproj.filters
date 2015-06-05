@@ -67,6 +67,12 @@
     <Filter Include="Object\TimeCount">
       <UniqueIdentifier>{6f394180-35c3-4873-ae8d-4fe6a0fd8270}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Booster">
+      <UniqueIdentifier>{ebd00366-659d-4815-985a-c03ce32611ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{30e1bcf8-c9f4-4570-9dc1-3d3ea66fc165}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -137,6 +143,12 @@
     </ClCompile>
     <ClCompile Include="..\src\Object\TimeCount\time_counter.cpp">
       <Filter>Object\TimeCount</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Booster\booster.cpp">
+      <Filter>Object\Booster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Collision\collision.cpp">
+      <Filter>Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +226,15 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\TimeCount\time_counter.h">
       <Filter>Object\TimeCount</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Booster\booster.h">
+      <Filter>Object\Booster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\road_size.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Collision\collision.h">
+      <Filter>Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
