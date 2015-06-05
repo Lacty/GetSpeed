@@ -12,6 +12,7 @@
 #include "../../Object/Meter/Speed/speed_meter.h"
 #include "../../Object/Meter/Odo/odo_meter.h"
 #include "../../Object/Ring/stage_ring.h"
+#include "../../Object/TimeCount/time_counter.h"
 
 #include "../../Object/Camera/camera.h"
 
@@ -45,6 +46,9 @@ Scene(mgr)
 
   m_stage_ring = std::make_shared<StageRing>();
   Task::getInstance().add(m_stage_ring->getName(), m_stage_ring);
+
+  m_counter = std::make_shared<TimeCounter>();
+  Task::getInstance().add(m_counter->getName(), m_counter);
 
   //-------------------------------------------------------
   // Camera‰Šú‰»

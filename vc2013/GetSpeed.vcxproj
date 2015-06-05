@@ -123,6 +123,7 @@
     <ClCompile Include="..\src\Object\Road\road.cpp" />
     <ClCompile Include="..\src\Object\Start\starter.cpp" />
     <ClCompile Include="..\src\Object\task.cpp" />
+    <ClCompile Include="..\src\Object\TimeCount\time_counter.cpp" />
     <ClCompile Include="..\src\Scene\Game\game_main.cpp" />
     <ClCompile Include="..\src\Scene\scene.cpp" />
     <ClCompile Include="..\src\Scene\Title\title.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="..\src\Object\Road\road.h" />
     <ClInclude Include="..\src\Object\Start\starter.h" />
     <ClInclude Include="..\src\Object\task.h" />
+    <ClInclude Include="..\src\Object\TimeCount\time_counter.h" />
     <ClInclude Include="..\src\Scene\Game\game_main.h" />
     <ClInclude Include="..\src\Scene\scene.h" />
     <ClInclude Include="..\src\Scene\Title\title.h" />

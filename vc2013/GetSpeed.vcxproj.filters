@@ -19,9 +19,6 @@
     <Filter Include="Object">
       <UniqueIdentifier>{ad579414-9944-45ff-91ce-b1a82cdebffb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Player">
-      <UniqueIdentifier>{7bde4334-fe03-4fab-8152-a0c5aea963b2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{09cca550-d1b2-456d-8c79-51af5b9d34d9}</UniqueIdentifier>
     </Filter>
@@ -63,6 +60,12 @@
     </Filter>
     <Filter Include="Object\Start">
       <UniqueIdentifier>{72bd9e20-e76a-4941-aeb1-58f2970f1073}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Player">
+      <UniqueIdentifier>{7bde4334-fe03-4fab-8152-a0c5aea963b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\TimeCount">
+      <UniqueIdentifier>{6f394180-35c3-4873-ae8d-4fe6a0fd8270}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Object\Start\starter.cpp">
       <Filter>Object\Start</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\TimeCount\time_counter.cpp">
+      <Filter>Object\TimeCount</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +211,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\Start\starter.h">
       <Filter>Object\Start</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\TimeCount\time_counter.h">
+      <Filter>Object\TimeCount</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

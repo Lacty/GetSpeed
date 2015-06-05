@@ -12,7 +12,7 @@ private:
   Vec3f m_pos;
   Vec3f m_rotate;
   Vec3f m_scale;
-  std::unique_ptr<Font> m_font;
+  std::unique_ptr<Font> p_font;
 
   std::shared_ptr<Player> p_player;
 
