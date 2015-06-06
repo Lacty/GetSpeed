@@ -32,5 +32,6 @@ public:
   void draw();
 
   Vec3f& getPos();
+  Vec3f& getRotate();
   float& getSpeed();
 };

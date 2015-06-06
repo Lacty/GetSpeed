@@ -55,6 +55,10 @@ Vec3f& Player::getPos() {
   return m_pos;
 }
 
+Vec3f& Player::getRotate() {
+  return m_rotate;
+}
+
 float& Player::getSpeed() {
   return p_advance->getSpeed();
 }
