@@ -13,11 +13,15 @@ m_scale(Vec3f(1, 1, 1))
 {
   m_name = std::string("Booster");
   p_player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
+
+  //-------------------------------------------------------
+  // Boostの初期化
   for (int i = 0; i < Boost_Num; ++i) {
     boost[i].pos  = Vec3f(Rand::randFloat(LeftEdge, RightEdge),
                           15,
                           Rand::randFloat(Depth, Depth * 2));
     boost[i].size = Vec3f(30, 30, 30);
+    boost[i].isHit = false;
   }
   player_last_pos = p_player->getPos();
 }
@@ -32,15 +36,14 @@ void Booster::isCollision() {
                                 Vec2f(p_player->getPos().x, p_player->getPos().z),
                                 Vec2f(player_last_pos.x, player_last_pos.z)))
     {
-      // デバッグ用サイズ変更
-      boost[i].size = Vec3f(10, 10, 10);
+      boost[i].isHit = true;
     }
   }
   player_last_pos = p_player->getPos();
 }
 
 void Booster::loop() {
-  float bound_line = p_player->getPos().z + p_player->getSpeed();
+  float bound_line = p_player->getPos().z + p_player->getSpeed() * 2;
   for (int i = 0; i < Boost_Num; ++i) {
     if (boost[i].pos.z > bound_line) {
       boost[i].pos = Vec3f(Rand::randFloat(LeftEdge, RightEdge),
@@ -59,4 +62,11 @@ void Booster::draw() {
   for (int i = 0; i < Boost_Num; ++i) {
     gl::drawStrokedCube(boost[i].pos, boost[i].size);
   }
+}
+
+bool Booster::isCollisionToBooster() {
+  for (int i = 0; i < Boost_Num; ++i) {
+    if (boost[i].isHit) return true;
+  }
+  return false;
 }

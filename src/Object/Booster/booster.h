@@ -16,6 +16,7 @@ private:
   struct Boost {
     Vec3f pos;
     Vec3f size;
+    bool isHit;
   } boost[Boost_Num];
 
   std::shared_ptr<Player> p_player;
@@ -30,4 +31,6 @@ public:
 
   void update();
   void draw();
+
+  bool isCollisionToBooster();
 };
