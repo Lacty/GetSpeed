@@ -19,7 +19,8 @@ isSpeedUp(false)
   //-------------------------------------------------------
   // Block‚Ì‰Šú‰»
   for (int i = 0; i < Block_Num; ++i) {
-    block[i].pos = Vec3f(Rand::randFloat(LeftEdge, RightEdge),
+    block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.5f,
+                                         RightEdge - block[i].size.x * 0.5f),
                          15,
                          Rand::randFloat(Depth, Depth * 3));
     block[i].size = Vec3f(60, 30, 30);
@@ -49,7 +50,8 @@ void Block::loop() {
   float bound_line = p_player->getPos().z + p_player->getSpeed() * 2;
   for (int i = 0; i < Block_Num; ++i) {
     if (block[i].pos.z > bound_line) {
-      block[i].pos = Vec3f(Rand::randFloat(LeftEdge, RightEdge),
+      block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.5f,
+                                           RightEdge - block[i].size.x * 0.5f),
                            15,
                            Rand::randFloat(Depth, Depth * 3) + p_player->getPos().z);
     }
@@ -63,16 +65,19 @@ void Block::update() {
 }
 
 void Block::draw() {
+  gl::enableDepthRead();
   for (int i = 0; i < Block_Num; ++i) {
-    gl::drawStrokedCube(block[i].pos, block[i].size);
+    gl::pushModelView();
+    gl::color(ColorA(0.4, 0.4, 0.4, 0.6));
+    gl::drawCube(block[i].pos, block[i].size);
+    gl::popModelView();
   }
+  gl::disableDepthRead();
 }
 
 bool Block::isCollisionToPlayer() {
   for (int i = 0; i < Block_Num; ++i) {
-    if (block[i].isHit) {
-      return true;
-    }
+    if (block[i].isHit) return true;
   }
   return false;
 }
