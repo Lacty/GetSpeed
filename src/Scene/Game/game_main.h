@@ -10,6 +10,7 @@ class Player;
 class PlayerAdvancer;
 class PlayerMover;
 class PlayerRotater;
+class PlayerEffect;
 class SpeedMeter;
 class OdoMeter;
 class StageRing;
@@ -23,6 +24,7 @@ private:
   std::shared_ptr<PlayerAdvancer> m_player_advancer;
   std::shared_ptr<PlayerMover> m_player_mover;
   std::shared_ptr<PlayerRotater> m_player_rotater;
+  std::shared_ptr<PlayerEffect> m_player_effect;
   std::shared_ptr<SpeedMeter> m_speed_meter;
   std::shared_ptr<OdoMeter> m_odo_meter;
   std::shared_ptr<StageRing> m_stage_ring;

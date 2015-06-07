@@ -9,7 +9,11 @@
 
 Booster::Booster() :
 m_rotate(Vec3f::zero()),
-m_scale(Vec3f(1, 1, 1))
+m_scale(Vec3f(1, 1, 1)),
+m_eye_anim_z(0.0f),
+m_eye_anim(0.0f),
+isEyeAnim(false),
+isSpeedUp(false)
 {
   m_name = std::string("Booster");
   p_player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
@@ -37,6 +41,8 @@ void Booster::isCollision() {
                                 Vec2f(player_last_pos.x, player_last_pos.z)))
     {
       boost[i].isHit = true;
+    } else {
+      boost[i].isHit = false;
     }
   }
   player_last_pos = p_player->getPos();
@@ -56,6 +62,7 @@ void Booster::loop() {
 void Booster::update() {
   loop();
   isCollision();
+  moveCamera();
 }
 
 void Booster::draw() {
@@ -69,4 +76,30 @@ bool Booster::isCollisionToBooster() {
     if (boost[i].isHit) return true;
   }
   return false;
+}
+
+void Booster::moveCamera() {
+  if (isCollisionToBooster()) {
+    isEyeAnim = true;
+  }
+
+  if (isEyeAnim) {
+    if (!isSpeedUp) {
+      p_player->getSpeed() += PlusSpeed;
+      isSpeedUp = true;
+    }
+
+    m_eye_anim += 0.04;
+    m_eye_anim_z = sin(m_eye_anim) * 10;
+    if (m_eye_anim_z <= 0) {
+      m_eye_anim = 0;
+      m_eye_anim_z = 0;
+      isEyeAnim = false;
+      isSpeedUp = false;
+    }
+  }
+}
+
+float Booster::getEyePosZ() const{
+  return m_eye_anim_z;
 }

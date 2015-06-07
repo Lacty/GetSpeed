@@ -9,6 +9,7 @@
 #include "../../Object/Player/player_advancer.h"
 #include "../../Object/Player/player_mover.h"
 #include "../../Object/Player/player_rotater.h"
+#include "../../Object/Player/player_effect.h"
 #include "../../Object/Meter/Speed/speed_meter.h"
 #include "../../Object/Meter/Odo/odo_meter.h"
 #include "../../Object/Ring/stage_ring.h"
@@ -39,6 +40,9 @@ Scene(mgr)
   m_player = std::make_shared<Player>();
   Task::getInstance().add(m_player->getName(), m_player);
 
+  m_player_effect = std::make_shared<PlayerEffect>();
+  Task::getInstance().add(m_player_effect->getName(), m_player_effect);
+
   m_speed_meter = std::make_shared<SpeedMeter>();
   Task::getInstance().add(m_speed_meter->getName(), m_speed_meter);
 
@@ -67,7 +71,7 @@ void GameMain::cameraMove() {
 
   eye = Vec3f(m_player->getPos().x * 0.9,
               m_player->getPos().y + 40.f,
-              m_player->getPos().z + 100.f);
+              m_player->getPos().z + 100.f + m_booster->getEyePosZ());
 
   target = Vec3f(m_player->getPos().x / 1.2f,
                  -100.f,

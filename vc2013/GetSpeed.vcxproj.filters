@@ -150,6 +150,9 @@
     <ClCompile Include="..\src\Collision\collision.cpp">
       <Filter>Collision</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Object\Player\player_effect.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
@@ -235,6 +238,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Collision\collision.h">
       <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Player\player_effect.h">
+      <Filter>Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

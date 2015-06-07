@@ -119,6 +119,7 @@
     <ClCompile Include="..\src\Object\object.cpp" />
     <ClCompile Include="..\src\Object\Player\player.cpp" />
     <ClCompile Include="..\src\Object\Player\player_advancer.cpp" />
+    <ClCompile Include="..\src\Object\Player\player_effect.cpp" />
     <ClCompile Include="..\src\Object\Player\player_mover.cpp" />
     <ClCompile Include="..\src\Object\Player\player_rotater.cpp" />
     <ClCompile Include="..\src\Object\Ring\stage_ring.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="..\src\Object\object.h" />
     <ClInclude Include="..\src\Object\Player\player.h" />
     <ClInclude Include="..\src\Object\Player\player_advancer.h" />
+    <ClInclude Include="..\src\Object\Player\player_effect.h" />
     <ClInclude Include="..\src\Object\Player\player_mover.h" />
     <ClInclude Include="..\src\Object\Player\player_rotater.h" />
     <ClInclude Include="..\src\Object\Ring\stage_ring.h" />

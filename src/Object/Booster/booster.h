@@ -25,6 +25,13 @@ private:
   void isCollision();
   void loop();
 
+  enum { PlusSpeed = 300 };
+  float m_eye_anim_z;
+  float m_eye_anim;
+  bool isEyeAnim;
+  bool isSpeedUp;
+  void moveCamera();
+
 public:
   Booster();
   ~Booster();
@@ -33,4 +40,5 @@ public:
   void draw();
 
   bool isCollisionToBooster();
+  float getEyePosZ() const;
 };

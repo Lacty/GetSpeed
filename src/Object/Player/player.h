@@ -22,7 +22,8 @@ private:
   Vec3f m_scale;
 
   float m_angle;
-  float& pitch();
+  float m_pitch;
+  void  pitch();
 
 public:
   Player();
@@ -33,5 +34,6 @@ public:
 
   Vec3f& getPos();
   Vec3f& getRotate();
+  float& getPitch();
   float& getSpeed();
 };
