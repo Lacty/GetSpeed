@@ -73,6 +73,9 @@
     <Filter Include="Collision">
       <UniqueIdentifier>{30e1bcf8-c9f4-4570-9dc1-3d3ea66fc165}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Block">
+      <UniqueIdentifier>{b9d84c2e-da5e-45f6-995d-9771567062b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -152,6 +155,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Object\Player\player_effect.cpp">
       <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\Block\block.cpp">
+      <Filter>Object\Block</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\Player\player_effect.h">
       <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Block\block.h">
+      <Filter>Object\Block</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

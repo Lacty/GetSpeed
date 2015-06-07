@@ -7,14 +7,14 @@
 
 class Player;
 
-class Booster : public Object {
+class Block : public Object {
 private:
-  enum { Boost_Num = 1 };
-  struct Boost {
+  enum { Block_Num = 4 };
+  struct sBlock {
     Vec3f pos;
     Vec3f size;
     bool isHit;
-  } boost[Boost_Num];
+  } block[Block_Num];
 
   std::shared_ptr<Player> p_player;
   Vec3f player_last_pos;
@@ -22,7 +22,7 @@ private:
   void Collision();
   void loop();
 
-  enum { PlusSpeed = 300 };
+  enum { MinusSpeed = -1000 };
   float m_eye_anim_z;
   float m_eye_anim;
   bool isEyeAnim;
@@ -32,8 +32,8 @@ private:
   bool isCollisionToPlayer();
 
 public:
-  Booster();
-  ~Booster();
+  Block();
+  ~Block();
 
   void update();
   void draw();

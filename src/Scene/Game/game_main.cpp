@@ -15,6 +15,7 @@
 #include "../../Object/Ring/stage_ring.h"
 #include "../../Object/TimeCount/time_counter.h"
 #include "../../Object/Booster/booster.h"
+#include "../../Object/Block/block.h"
 
 #include "../../Object/Camera/camera.h"
 
@@ -58,6 +59,9 @@ Scene(mgr)
   m_booster = std::make_shared<Booster>();
   Task::getInstance().add(m_booster->getName(), m_booster);
 
+  m_block = std::make_shared<Block>();
+  Task::getInstance().add(m_block->getName(), m_block);
+
   //-------------------------------------------------------
   // Camera‰Šú‰»
 
@@ -71,7 +75,7 @@ void GameMain::cameraMove() {
 
   eye = Vec3f(m_player->getPos().x * 0.9,
               m_player->getPos().y + 40.f,
-              m_player->getPos().z + 100.f + m_booster->getEyePosZ());
+              m_player->getPos().z + 100.f + m_booster->getEyePosZ() + m_block->getEyePosZ());
 
   target = Vec3f(m_player->getPos().x / 1.2f,
                  -100.f,

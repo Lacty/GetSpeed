@@ -16,6 +16,7 @@ class OdoMeter;
 class StageRing;
 class TimeCounter;
 class Booster;
+class Block;
 
 class GameMain : public Scene {
 private:
@@ -30,6 +31,7 @@ private:
   std::shared_ptr<StageRing> m_stage_ring;
   std::shared_ptr<TimeCounter> m_counter;
   std::shared_ptr<Booster> m_booster;
+  std::shared_ptr<Block> m_block;
 
   Starter m_starter;
 

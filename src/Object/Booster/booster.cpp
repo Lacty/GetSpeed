@@ -8,8 +8,6 @@
 
 
 Booster::Booster() :
-m_rotate(Vec3f::zero()),
-m_scale(Vec3f(1, 1, 1)),
 m_eye_anim_z(0.0f),
 m_eye_anim(0.0f),
 isEyeAnim(false),
@@ -33,7 +31,7 @@ isSpeedUp(false)
 Booster::~Booster() {}
 
 
-void Booster::isCollision() {
+void Booster::Collision() {
   for (int i = 0; i < Boost_Num; ++i) {
     if (ly::collisionLineToLine(Vec2f(boost[i].pos.x - boost[i].size.x, boost[i].pos.z),
                                 Vec2f(boost[i].pos.x + boost[i].size.x, boost[i].pos.z),
@@ -61,7 +59,7 @@ void Booster::loop() {
 
 void Booster::update() {
   loop();
-  isCollision();
+  Collision();
   moveCamera();
 }
 
@@ -71,7 +69,7 @@ void Booster::draw() {
   }
 }
 
-bool Booster::isCollisionToBooster() {
+bool Booster::isCollisionToPlayer() {
   for (int i = 0; i < Boost_Num; ++i) {
     if (boost[i].isHit) return true;
   }
@@ -79,7 +77,7 @@ bool Booster::isCollisionToBooster() {
 }
 
 void Booster::moveCamera() {
-  if (isCollisionToBooster()) {
+  if (isCollisionToPlayer()) {
     isEyeAnim = true;
   }
 
