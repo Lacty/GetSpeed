@@ -19,8 +19,8 @@ isSpeedUp(false)
   //-------------------------------------------------------
   // Boost‚Ì‰Šú‰»
   for (int i = 0; i < Boost_Num; ++i) {
-    boost[i].pos = Vec3f(Rand::randFloat(LeftEdge + boost[i].size.x * 0.5f,
-                                         RightEdge - boost[i].size.x * 0.5f),
+    boost[i].pos = Vec3f(Rand::randFloat(LeftEdge + boost[i].size.x * 0.7f,
+                                         RightEdge - boost[i].size.x * 0.7f),
                           0,
                           Rand::randFloat(Depth, Depth * 2));
     boost[i].size = Vec3f(30, 30, 30);
@@ -51,8 +51,8 @@ void Booster::loop() {
   float bound_line = p_player->getPos().z + p_player->getSpeed() * 2;
   for (int i = 0; i < Boost_Num; ++i) {
     if (boost[i].pos.z > bound_line) {
-      boost[i].pos = Vec3f(Rand::randFloat(LeftEdge + boost[i].size.x * 0.5f,
-                                           RightEdge - boost[i].size.x * 0.5f),
+      boost[i].pos = Vec3f(Rand::randFloat(LeftEdge + boost[i].size.x * 0.7f,
+                                           RightEdge - boost[i].size.x * 0.7f),
                            0,
                            Rand::randFloat(Depth, Depth * 2) + p_player->getPos().z);
     }

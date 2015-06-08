@@ -56,6 +56,10 @@ Vec3f& Player::getPos() {
   return m_pos;
 }
 
+Vec3f Player::getScale() const {
+  return m_scale;
+}
+
 Vec3f& Player::getRotate() {
   return m_rotate;
 }

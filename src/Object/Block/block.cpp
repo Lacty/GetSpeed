@@ -19,8 +19,8 @@ isSpeedUp(false)
   //-------------------------------------------------------
   // Block‚Ì‰Šú‰»
   for (int i = 0; i < Block_Num; ++i) {
-    block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.5f,
-                                         RightEdge - block[i].size.x * 0.5f),
+    block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.2,
+                                         RightEdge - block[i].size.x * 0.2),
                          15,
                          Rand::randFloat(Depth, Depth * 3));
     block[i].size = Vec3f(60, 30, 30);
@@ -50,8 +50,8 @@ void Block::loop() {
   float bound_line = p_player->getPos().z + p_player->getSpeed() * 2;
   for (int i = 0; i < Block_Num; ++i) {
     if (block[i].pos.z > bound_line) {
-      block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.5f,
-                                           RightEdge - block[i].size.x * 0.5f),
+      block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.2,
+                                           RightEdge - block[i].size.x * 0.2),
                            15,
                            Rand::randFloat(Depth, Depth * 3) + p_player->getPos().z);
     }

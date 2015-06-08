@@ -33,6 +33,7 @@ public:
   void draw();
 
   Vec3f& getPos();
+  Vec3f getScale() const;
   Vec3f& getRotate();
   float& getPitch();
   float& getSpeed();

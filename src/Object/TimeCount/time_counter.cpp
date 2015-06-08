@@ -46,7 +46,11 @@ std::string TimeCounter::count() {
   int minute;
   minute = std::chrono::duration_cast<std::chrono::minutes>(count).count();
   std::ostringstream str_count;
-  str_count << minute << ":" << sec << ":" << millisec;
+  if (sec < 10) {
+    str_count << minute << ":" << "0" << sec << ":" << millisec;
+  } else {
+    str_count << minute << ":" << sec << ":" << millisec;
+  }
   return str_count.str();
 }
 

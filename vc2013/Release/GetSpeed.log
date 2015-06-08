@@ -1,0 +1,41 @@
+﻿2015/06/08 18:25:52 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\vantan\Desktop\CinderProject\GetSpeed\vc2013\GetSpeed.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\include /I..\..\..\nishi\cinder_0.8.6\include /I..\..\..\nishi\cinder_0.8.6\boost /I..\..\..\nishi\cinder_0.8.6\include\freetype2 /Zi /nologo /W3 /WX- /MP /O2 /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D NOMINMAX /D _WIN32_WINNT=0x0502 /D PRODUCT_NAME=GetSpeed /D _UNICODE /D UNICODE /GF /Gm- /EHsc /MT /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\Object\Player\player_effect.cpp
+         player_effect.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vantan\Desktop\CinderProject\GetSpeed\vc2013\Release\GetSpeed.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\..\nishi\cinder_0.8.6\lib\msw\x86 "cinder-v120.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vantan\Desktop\CinderProject\GetSpeed\vc2013\Release\GetSpeed.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"C:\Users\vantan\Desktop\CinderProject\GetSpeed\vc2013\Release\GetSpeed.lib" /MACHINE:X86 /SAFESEH Release\Resources.res
+         Release\collision.obj
+         Release\GetSpeedApp.obj
+         Release\graph.obj
+         Release\key.obj
+         Release\mouse.obj
+         Release\block.obj
+         Release\booster.obj
+         Release\odo_meter.obj
+         Release\speed_meter.obj
+         Release\model.obj
+         Release\object.obj
+         Release\player.obj
+         Release\player_advancer.obj
+         Release\player_effect.obj
+         Release\player_mover.obj
+         Release\player_rotater.obj
+         Release\stage_ring.obj
+         Release\road.obj
+         Release\starter.obj
+         Release\task.obj
+         Release\time_counter.obj
+         Release\game_main.obj
+         Release\scene.obj
+         Release\title.obj
+         Release\scene_mgr.obj
+         コード生成しています。
+     1>c:\users\vantan\desktop\cinderproject\getspeed\src\object\player\player_effect.cpp(46): warning C4700: 初期化されていないローカル変数 'end' が使用されます
+         コード生成が終了しました。
+         GetSpeed.vcxproj -> C:\Users\vantan\Desktop\CinderProject\GetSpeed\vc2013\Release\GetSpeed.exe
+     1>プロジェクト "C:\Users\vantan\Desktop\CinderProject\GetSpeed\vc2013\GetSpeed.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:31.61
