@@ -19,8 +19,8 @@ isSpeedUp(false)
   //-------------------------------------------------------
   // Boost‚Ì‰Šú‰»
   for (int i = 0; i < Boost_Num; ++i) {
-    boost[i].pos = Vec3f(Rand::randFloat(LeftEdge + boost[i].size.x * 0.7f,
-                                         RightEdge - boost[i].size.x * 0.7f),
+    boost[i].pos = Vec3f(Rand::randFloat(LeftEdge + boost[i].size.x,
+                                         RightEdge - boost[i].size.x),
                           0,
                           Rand::randFloat(Depth, Depth * 2));
     boost[i].size = Vec3f(30, 30, 30);
@@ -51,8 +51,8 @@ void Booster::loop() {
   float bound_line = p_player->getPos().z + p_player->getSpeed() * 2;
   for (int i = 0; i < Boost_Num; ++i) {
     if (boost[i].pos.z > bound_line) {
-      boost[i].pos = Vec3f(Rand::randFloat(LeftEdge + boost[i].size.x * 0.7f,
-                                           RightEdge - boost[i].size.x * 0.7f),
+      boost[i].pos = Vec3f(Rand::randFloat(LeftEdge + boost[i].size.x,
+                                           RightEdge - boost[i].size.x),
                            0,
                            Rand::randFloat(Depth, Depth * 2) + p_player->getPos().z);
     }
@@ -69,7 +69,7 @@ void Booster::draw() {
   gl::enableDepthRead();
   for (int i = 0; i < Boost_Num; ++i) {
     gl::pushModelView();
-    gl::color(Color(1, 0.6, 0));
+    gl::color(Color(1, 0.6f, 0));
     gl::translate(boost[i].pos);
     gl::drawTorus(30, 3, 12, 10);
     gl::popModelView();
@@ -95,8 +95,8 @@ void Booster::moveCamera() {
       isSpeedUp = true;
     }
 
-    m_eye_anim += 0.04;
-    m_eye_anim_z = sin(m_eye_anim) * 10;
+    m_eye_anim += 0.04f;
+    m_eye_anim_z = sin(m_eye_anim) * 14;
     if (m_eye_anim_z <= 0) {
       m_eye_anim = 0;
       m_eye_anim_z = 0;

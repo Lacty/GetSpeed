@@ -1,7 +1,9 @@
 
+#include "../Title/title.h"
 #include "game_main.h"
 #include "../../System/scene_mgr.h"
 #include "../../MyLib/graph.h"
+#include "../../MyLib/key.h"
 
 #include "../../Object/task.h"
 #include "../../Object/Road/road.h"
@@ -61,11 +63,6 @@ Scene(mgr)
 
   m_block = std::make_shared<Block>();
   Task::getInstance().add(m_block->getName(), m_block);
-
-  //-------------------------------------------------------
-  // Camera‰Šú‰»
-
-  GameCamera::getInstance().create(CameraPersp(getWindowWidth(), getWindowHeight(), 35.f, 0.5f, 5000.f));
 }
 
 
@@ -90,10 +87,14 @@ void GameMain::update() {
     Task::getInstance().update();
   }
   cameraMove();
+
+  if (Key::get().isPush(KeyEvent::KEY_RETURN)) {
+    Task::getInstance().clear();
+    m_mgr->shiftNextScene(std::make_shared<Title>(m_mgr));
+  }
 }
 
 void GameMain::draw() {
-  gl::setMatrices(GameCamera::getInstance().cam());
   Task::getInstance().draw();
   m_starter.draw();
 }

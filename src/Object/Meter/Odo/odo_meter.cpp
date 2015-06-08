@@ -37,7 +37,7 @@ void OdoMeter::draw() {
     gl::translate(m_pos);
     gl::scale(m_scale);
     gl::rotate(m_rotate);
-    gl::drawStringCentered(odo.str(), Vec2f::zero(), Color(0.6, 0.6, 0.6), *p_font);
+    gl::drawStringCentered(odo.str(), Vec2f::zero(), Color(0.4f, 0.4f, 0.4f), *p_font);
   }
   gl::popModelView();
 }

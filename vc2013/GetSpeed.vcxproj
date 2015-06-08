@@ -169,6 +169,9 @@
     <None Include="..\assets\Model\Normal.json" />
     <None Include="..\assets\Model\Road.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\assets\Font\planet.TTF" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>

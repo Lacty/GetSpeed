@@ -7,11 +7,14 @@
 
 #include "System/scene_mgr.h"
 #include "Object/task.h"
+#include "Object/Camera/camera.h"
+
+#include <memory>
 
 
 class GetSpeedApp : public AppNative {
 private:
-  SceneMgr scene;
+  std::unique_ptr<SceneMgr> scene;
 
 public:
   void mouseDown(MouseEvent event) {
@@ -46,17 +49,25 @@ void GetSpeedApp::setup() {
   Task::getInstance();
   Rand::randomize();
 
+  //-------------------------------------------------------
+  // Cameraèâä˙âª
+
+  GameCamera::getInstance().create(CameraPersp(getWindowWidth(), getWindowHeight(), 35.f, 0.5f, 5000.f));
+
+  scene = std::make_unique<SceneMgr>();
+
   gl::enableAlphaBlending();
 }
 
 void GetSpeedApp::update() {
-  scene.update();
+  scene->update();
 }
 
 void GetSpeedApp::draw() {
   gl::clear(Color(0.94f, 0.94f, 0.94f));
+  gl::setMatrices(GameCamera::getInstance().cam());
 
-  scene.draw();
+  scene->draw();
 
   Mouse::get().flashInput();
   Key::get().flashInput();

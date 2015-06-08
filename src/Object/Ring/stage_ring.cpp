@@ -36,6 +36,7 @@ void StageRing::draw() {
   gl::pushModelView();
   gl::enableDepthRead();
 
+  gl::color(ColorA(0.5f, 0.5f, 0.5f, 0.5f));
   gl::rotate(m_rotate);
   gl::scale(m_scale);
 

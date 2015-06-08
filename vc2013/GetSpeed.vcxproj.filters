@@ -76,6 +76,9 @@
     <Filter Include="Object\Block">
       <UniqueIdentifier>{b9d84c2e-da5e-45f6-995d-9771567062b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Font">
+      <UniqueIdentifier>{d1c27c85-5cba-4713-a4f8-7d1a32213b23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -264,5 +267,10 @@
     <None Include="..\assets\Model\Road.json">
       <Filter>Assets\Model</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\assets\Font\planet.TTF">
+      <Filter>Assets\Font</Filter>
+    </Font>
   </ItemGroup>
 </Project>

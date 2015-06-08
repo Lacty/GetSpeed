@@ -19,10 +19,10 @@ isSpeedUp(false)
   //-------------------------------------------------------
   // Block‚Ì‰Šú‰»
   for (int i = 0; i < Block_Num; ++i) {
-    block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.2,
-                                         RightEdge - block[i].size.x * 0.2),
+    block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.2f,
+                                         RightEdge - block[i].size.x * 0.2f),
                          15,
-                         Rand::randFloat(Depth, Depth * 3));
+                         Rand::randFloat(Depth * 0.5f, Depth * 3));
     block[i].size = Vec3f(60, 30, 30);
     block[i].isHit = false;
   }
@@ -50,8 +50,8 @@ void Block::loop() {
   float bound_line = p_player->getPos().z + p_player->getSpeed() * 2;
   for (int i = 0; i < Block_Num; ++i) {
     if (block[i].pos.z > bound_line) {
-      block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.2,
-                                           RightEdge - block[i].size.x * 0.2),
+      block[i].pos = Vec3f(Rand::randFloat(LeftEdge + block[i].size.x * 0.2f,
+                                           RightEdge - block[i].size.x * 0.2f),
                            15,
                            Rand::randFloat(Depth, Depth * 3) + p_player->getPos().z);
     }
@@ -68,7 +68,7 @@ void Block::draw() {
   gl::enableDepthRead();
   for (int i = 0; i < Block_Num; ++i) {
     gl::pushModelView();
-    gl::color(ColorA(0.4, 0.4, 0.4, 0.6));
+    gl::color(ColorA(0.4f, 0.4f, 0.4f, 0.6f));
     gl::drawCube(block[i].pos, block[i].size);
     gl::popModelView();
   }
@@ -97,8 +97,8 @@ void Block::moveCamera() {
       isSpeedUp = true;
     }
 
-    m_eye_anim += 0.04;
-    m_eye_anim_z = -sin(m_eye_anim) * 10;
+    m_eye_anim += 0.04f;
+    m_eye_anim_z = -sin(m_eye_anim) * 14;
     if (m_eye_anim_z >= 0) {
       m_eye_anim = 0;
       m_eye_anim_z = 0;

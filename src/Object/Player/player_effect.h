@@ -20,7 +20,12 @@ private:
     float pos_z;
     Vec3f rotate;
     Vec3f scale;
+    float cos;
+    bool Destroy() {
+      return (cos < 0) ? true : false;
+    }
   };
+  int trigger;
   std::list<Effect> left;
   std::list<Effect> right;
 
@@ -32,6 +37,7 @@ private:
   void increaseAnim();
   void scaleEffect();
   void moveEffect();
+  void destroyEffect();
 
 public:
   PlayerEffect();
