@@ -130,8 +130,10 @@
     <ClCompile Include="..\src\Object\task.cpp" />
     <ClCompile Include="..\src\Object\TimeCount\time_counter.cpp" />
     <ClCompile Include="..\src\Scene\Game\game_main.cpp" />
+    <ClCompile Include="..\src\Scene\Result\result.cpp" />
     <ClCompile Include="..\src\Scene\scene.cpp" />
     <ClCompile Include="..\src\Scene\Title\title.cpp" />
+    <ClCompile Include="..\src\Score\score.cpp" />
     <ClCompile Include="..\src\System\scene_mgr.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,13 +165,16 @@
     <ClInclude Include="..\src\Object\TimeCount\time_counter.h" />
     <ClInclude Include="..\src\road_size.h" />
     <ClInclude Include="..\src\Scene\Game\game_main.h" />
+    <ClInclude Include="..\src\Scene\Result\result.h" />
     <ClInclude Include="..\src\Scene\scene.h" />
     <ClInclude Include="..\src\Scene\Title\title.h" />
+    <ClInclude Include="..\src\Score\score.h" />
     <ClInclude Include="..\src\System\scene_mgr.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\Model\Normal.json" />
     <None Include="..\assets\Model\Road.json" />
+    <None Include="..\assets\SaveData\save_data.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\assets\Font\planet.TTF" />

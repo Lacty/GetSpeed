@@ -50,9 +50,7 @@ void PlayerAdvancer::update() {
   move();
 }
 
-void PlayerAdvancer::draw() {
-  console() << "velocity.z = " << m_velocity.z << std::endl;
-}
+void PlayerAdvancer::draw() {}
 
 float& PlayerAdvancer::getPos() {
   return m_pos.z;

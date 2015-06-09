@@ -79,6 +79,15 @@
     <Filter Include="Assets\Font">
       <UniqueIdentifier>{d1c27c85-5cba-4713-a4f8-7d1a32213b23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Result">
+      <UniqueIdentifier>{a4f71a0d-869d-49fd-a9cb-7e739053baa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Score">
+      <UniqueIdentifier>{3b54f6a2-54bf-42af-9ee3-615850b95afc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\SaveData">
+      <UniqueIdentifier>{063563d6-a797-4549-b01c-15bebf53ebc2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -164,6 +173,12 @@
     </ClCompile>
     <ClCompile Include="..\src\Object\Player\player_life.cpp">
       <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\Result\result.cpp">
+      <Filter>Scene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Score\score.cpp">
+      <Filter>Score</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +275,12 @@
     <ClInclude Include="..\src\Object\Player\player_life.h">
       <Filter>Object\Player</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Scene\Result\result.h">
+      <Filter>Scene\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Score\score.h">
+      <Filter>Score</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc">
@@ -272,6 +293,9 @@
     </None>
     <None Include="..\assets\Model\Road.json">
       <Filter>Assets\Model</Filter>
+    </None>
+    <None Include="..\assets\SaveData\save_data.json">
+      <Filter>Assets\SaveData</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

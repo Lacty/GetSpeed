@@ -8,6 +8,7 @@
 #include "System/scene_mgr.h"
 #include "Object/task.h"
 #include "Object/Camera/camera.h"
+#include "Score/score.h"
 
 #include <memory>
 
@@ -48,6 +49,9 @@ void GetSpeedApp::setup() {
   Key::get();
   Task::getInstance();
   Rand::randomize();
+  Score::getInstance();
+  Score::getInstance().load();
+  Score::getInstance().saveToJson();
 
   //-------------------------------------------------------
   // Cameraèâä˙âª
