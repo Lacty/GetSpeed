@@ -1,5 +1,6 @@
 
 #include "../../MyLib/key.h"
+#include "../../road_size.h"
 #include "player_mover.h"
 
 
@@ -21,13 +22,16 @@ void PlayerMover::move() {
 }
 
 void PlayerMover::bound() {
-
+  if (m_pos.x < LeftEdge || m_pos.x > RightEdge) {
+    m_pos.x = std::max(m_pos.x, float(LeftEdge));
+    m_pos.x = std::min(m_pos.x, float(RightEdge));
+  }
 }
 
 
 void PlayerMover::update() {
   move();
-  //bound();
+  bound();
 }
 
 void PlayerMover::draw() {}

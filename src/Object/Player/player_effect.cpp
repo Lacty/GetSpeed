@@ -34,7 +34,7 @@ void PlayerEffect::effectTrigger() {
 
 PlayerEffect::Effect PlayerEffect::createEffect() {
   Effect effect;
-  effect.anim = 0.0f;
+  effect.anim  = 0.0f;
   effect.pos_z = 0.0f;
   effect.rotate = m_rotate;
   effect.scale = Vec3f::one();
