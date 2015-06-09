@@ -29,7 +29,6 @@ private:
   bool isSpeedUp;
   void moveCamera();
 
-  bool isCollisionToPlayer();
 
 public:
   Block();
@@ -39,4 +38,5 @@ public:
   void draw();
 
   float getEyePosZ() const;
+  bool isCollisionToPlayer() const;
 };

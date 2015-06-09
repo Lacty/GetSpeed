@@ -32,20 +32,17 @@ void PlayerAdvancer::speedManager() {
 
 void PlayerAdvancer::move() {
   if (Key::get().isPress(KeyEvent::KEY_w)) {
-    boost();
+    //-----------------------------------------------------
+    // デバッグ用 x を押すとスピードUp
+    if (Key::get().isPush(KeyEvent::KEY_x)) m_speed.z = 500;
     m_velocity.z += m_speed.z;
   } else if (m_velocity.z > 1) {
     m_velocity.z *= 0.98f;
-    if (m_velocity.z <= 30) {
+    if (m_velocity.z <= 30) { 
       m_velocity.z = 0.0f;
     }
   }
   m_pos.z -= m_velocity.z;
-}
-
-void PlayerAdvancer::boost() {
-  if (!Key::get().isPush(KeyEvent::KEY_LSHIFT)) return;
-  m_speed.z = 500;
 }
 
 void PlayerAdvancer::update() {

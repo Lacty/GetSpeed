@@ -105,7 +105,7 @@ void PlayerEffect::draw() {
   destroyEffect();
 
   gl::pushModelView();
-  gl::color(Color(0.4f, 0.4f, 0.4f));
+  gl::color(Color(0.3f, 0.3f, 0.3f));
 
   for (auto it : left) {
     gl::pushModelView();

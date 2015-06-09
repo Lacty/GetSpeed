@@ -75,7 +75,7 @@ void Block::draw() {
   gl::disableDepthRead();
 }
 
-bool Block::isCollisionToPlayer() {
+bool Block::isCollisionToPlayer() const {
   for (int i = 0; i < Block_Num; ++i) {
     if (block[i].isHit) return true;
   }

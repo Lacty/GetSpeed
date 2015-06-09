@@ -162,6 +162,9 @@
     <ClCompile Include="..\src\Object\Block\block.cpp">
       <Filter>Object\Block</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Object\Player\player_life.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
@@ -253,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Object\Block\block.h">
       <Filter>Object\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\Player\player_life.h">
+      <Filter>Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -18,6 +18,7 @@
 #include "../../Object/TimeCount/time_counter.h"
 #include "../../Object/Booster/booster.h"
 #include "../../Object/Block/block.h"
+#include "../../Object/Player/player_life.h"
 
 #include "../../Object/Camera/camera.h"
 
@@ -63,6 +64,9 @@ Scene(mgr)
 
   m_block = std::make_shared<Block>();
   Task::getInstance().add(m_block->getName(), m_block);
+
+  m_player_life = std::make_shared<PlayerLife>();
+  Task::getInstance().add(m_player_life->getName(), m_player_life);
 }
 
 
