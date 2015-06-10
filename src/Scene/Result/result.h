@@ -4,6 +4,10 @@
 #include "../scene.h"
 #include <memory>
 
+#include "cinder/audio/Context.h"
+#include "cinder/audio/NodeEffects.h"
+#include "cinder/audio/SamplePlayerNode.h"
+
 
 class Result : public Scene {
 private:
@@ -20,6 +24,9 @@ private:
   };
   Vec2f font_pos[Sentinel];
   Vec2f score_pos[Sentinel];
+
+  audio::BufferPlayerNodeRef bgm;
+  audio::GainNodeRef         gain;
 
   void camera();
 

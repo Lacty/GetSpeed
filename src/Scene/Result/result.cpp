@@ -21,6 +21,22 @@ font2(std::make_unique<Font>("", 80))
     font_pos[i] = Vec2f(-330, -180 + (i * 100));
     score_pos[i] = Vec2f(100, -180 + (i * 100));
   }
+
+  auto ctx = audio::Context::master();
+
+  audio::SourceFileRef sourceFile = audio::load(loadAsset("Sound/Result/bgm.mp3"));
+  audio::BufferRef buffer = sourceFile->loadBuffer();
+  bgm = ctx->makeNode(new audio::BufferPlayerNode(buffer));
+
+  gain = ctx->makeNode(new audio::GainNode(1.0f));
+
+  bgm >> gain >> ctx->getOutput();
+
+  ctx->enable();
+
+  gain->setValue(0.5f);
+  bgm->setLoopEnabled();
+  bgm->start();
 }
 
 
@@ -33,6 +49,7 @@ void Result::camera() {
 void Result::update() {
   camera();
   if (Key::get().isPush(KeyEvent::KEY_RETURN)) {
+    bgm->stop();
     Score::getInstance().saveToJson();
     Task::getInstance().clear();
     m_mgr->shiftNextScene(std::make_shared<Title>(m_mgr));
