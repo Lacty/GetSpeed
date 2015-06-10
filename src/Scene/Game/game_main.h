@@ -40,6 +40,8 @@ private:
   void cameraMove();
 
   // リザルト移行の処理：クラス化したいけど時間ないしかたない
+  bool isGameOver();
+  float fade_count;
   void gameOver();
 
 public:

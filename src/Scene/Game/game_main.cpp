@@ -26,7 +26,8 @@
 
 
 GameMain::GameMain(SceneMgr* mgr) :
-Scene(mgr)
+Scene(mgr),
+fade_count(0)
 {
   //-------------------------------------------------------
   // Task‚Ö‚Ì’Ç‰Á
@@ -87,21 +88,39 @@ void GameMain::cameraMove() {
   GameCamera::getInstance().cam().lookAt(eye, target);
 }
 
-void GameMain::update() {
-  m_starter.update();
-  if (m_starter.isStart()) {
-    Task::getInstance().update();
-  }
-  cameraMove();
 
-  if (Key::get().isPush(KeyEvent::KEY_RETURN)) {
+bool GameMain::isGameOver() {
+  return (m_player_life->getLife() == 0) ? true:false;
+}
+
+void GameMain::gameOver() {
+  if (!isGameOver()) return;
+
+  fade_count += 0.006f;
+  gl::pushModelView();
+  gl::translate(Vec3f(m_player->getPos().x, 0, m_player->getPos().z));
+  gl::rotate(Vec3f(180, 0, 0));
+  gl::color(ColorA(1, 1, 1, fade_count));
+  gl::drawSolidCircle(Vec2f::zero(), 100, 0);
+  gl::popModelView();
+
+  if (fade_count >= 1.0f) {
     Task::getInstance().clear();
     Score::getInstance().setCurrent(m_player->getDistance());
     m_mgr->shiftNextScene(std::make_shared<Result>(m_mgr));
   }
 }
 
+void GameMain::update() {
+  m_starter.update();
+  if (m_starter.isStart()) {
+    Task::getInstance().update();
+  }
+  cameraMove();
+}
+
 void GameMain::draw() {
   Task::getInstance().draw();
   m_starter.draw();
+  gameOver();
 }
