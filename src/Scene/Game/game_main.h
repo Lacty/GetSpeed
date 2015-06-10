@@ -39,6 +39,9 @@ private:
 
   void cameraMove();
 
+  // リザルト移行の処理：クラス化したいけど時間ないしかたない
+  void gameOver();
+
 public:
   GameMain(SceneMgr*);
   ~GameMain() = default;

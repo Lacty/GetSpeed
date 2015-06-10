@@ -2,10 +2,15 @@
 #pragma once
 #include "../../MyLib/ci_app.h"
 #include "../object.h"
+#include <memory>
 
+
+class PlayerLife;
 
 class PlayerMover : public Object {
 private:
+  std::shared_ptr<PlayerLife> p_life;
+
   Vec3f m_pos;
 
   // ˆÚ“®‚ÍŠï”‚ğg‚¤‚Æƒkƒ‹ƒkƒ‹“®‚­

@@ -1,12 +1,15 @@
 
 #include "player_advancer.h"
 #include "../../MyLib/key.h"
+#include "player_life.h"
+#include "../task.h"
 
 
 PlayerAdvancer::PlayerAdvancer() :
 m_pos(Vec3f::zero()),
 m_speed(Vec3f::zero()),
-m_velocity(Vec3f::zero()) {
+m_velocity(Vec3f::zero())
+{
   m_name = std::string("PlayerAdvancer");
 }
 
@@ -31,14 +34,14 @@ void PlayerAdvancer::speedManager() {
 }
 
 void PlayerAdvancer::move() {
-  if (Key::get().isPress(KeyEvent::KEY_w)) {
+  if (Key::get().isPress(KeyEvent::KEY_w) && p_life->getLife() > 0) {
     //-----------------------------------------------------
     // デバッグ用 x を押すとスピードUp
     if (Key::get().isPush(KeyEvent::KEY_x)) m_speed.z = 500;
     m_velocity.z += m_speed.z;
   } else if (m_velocity.z > 1) {
     m_velocity.z *= 0.98f;
-    if (m_velocity.z <= 30) { 
+    if (m_velocity.z <= 30) {
       m_velocity.z = 0.0f;
     }
   }
@@ -46,6 +49,9 @@ void PlayerAdvancer::move() {
 }
 
 void PlayerAdvancer::update() {
+  if (p_life == nullptr) {
+    p_life = std::dynamic_pointer_cast<PlayerLife>(Task::getInstance().find("PlayerLife"));
+  }
   speedManager();
   move();
 }
