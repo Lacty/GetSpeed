@@ -70,6 +70,23 @@ fade_count(0)
 
   m_player_life = std::make_shared<PlayerLife>();
   Task::getInstance().add(m_player_life->getName(), m_player_life);
+
+
+  auto ctx = audio::Context::master();
+
+  audio::SourceFileRef sourceFile = audio::load(loadAsset("Sound/GameMain/bgm.mp3"));
+  audio::BufferRef buffer = sourceFile->loadBuffer();
+  bgm = ctx->makeNode(new audio::BufferPlayerNode(buffer));
+
+  gain = ctx->makeNode(new audio::GainNode(1.0f));
+
+  bgm >> gain >> ctx->getOutput();
+
+  ctx->enable();
+
+  gain->setValue(0.1f);
+  bgm->setLoopEnabled();
+  bgm->start();
 }
 
 
@@ -105,6 +122,7 @@ void GameMain::gameOver() {
   gl::popModelView();
 
   if (fade_count >= 1.0f) {
+    bgm->stop();
     Task::getInstance().clear();
     Score::getInstance().setCurrent(m_player->getDistance());
     m_mgr->shiftNextScene(std::make_shared<Result>(m_mgr));

@@ -4,6 +4,10 @@
 #include "../../MyLib/ci_app.h"
 #include <memory>
 
+#include "cinder/audio/Context.h"
+#include "cinder/audio/NodeEffects.h"
+#include "cinder/audio/SamplePlayerNode.h"
+
 
 class Starter : public ly::noncopyable {
 private:
@@ -13,8 +17,15 @@ private:
   enum Status {
     Set,
     Ready,
-    Go
+    Go,
+    Sentinel
   } state;
+
+  audio::BufferPlayerNodeRef se_set;
+  audio::BufferPlayerNodeRef se_ready;
+  audio::BufferPlayerNodeRef se_go;
+  audio::GainNodeRef         gain;
+  bool isSe[Sentinel];
 
 public:
   Starter();

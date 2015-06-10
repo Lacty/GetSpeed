@@ -4,6 +4,10 @@
 #include "../scene.h"
 #include <memory>
 
+#include "cinder/audio/Context.h"
+#include "cinder/audio/NodeEffects.h"
+#include "cinder/audio/SamplePlayerNode.h"
+
 
 class Road;
 class Player;
@@ -34,6 +38,9 @@ private:
   std::shared_ptr<Booster> m_booster;
   std::shared_ptr<Block> m_block;
   std::shared_ptr<PlayerLife> m_player_life;
+
+  audio::BufferPlayerNodeRef bgm;
+  audio::GainNodeRef         gain;
 
   Starter m_starter;
 

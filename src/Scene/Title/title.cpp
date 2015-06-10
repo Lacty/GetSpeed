@@ -22,6 +22,23 @@ m_rotate(Vec3f(180, 0, 0))
   font3 = std::make_unique<Font>("", 120.f);
   font4 = std::make_unique<Font>(loadAsset("Font/planet.TTF"), 30.f);
   Score::getInstance().load();
+
+  
+  auto ctx = audio::Context::master();
+
+  audio::SourceFileRef sourceFile = audio::load(loadAsset("Sound/Title/bgm.mp3"));
+  audio::BufferRef buffer = sourceFile->loadBuffer();
+  bgm = ctx->makeNode(new audio::BufferPlayerNode(buffer));
+
+  gain = ctx->makeNode(new audio::GainNode(1.0f));
+
+  bgm >> gain >> ctx->getOutput();
+
+  ctx->enable();
+
+  gain->setValue(0.14f);
+  bgm->setLoopEnabled();
+  bgm->start();
 }
 
 void Title::camera() {
@@ -33,6 +50,7 @@ void Title::camera() {
 void Title::update() {
   camera();
   if (Key::get().isPush(KeyEvent::KEY_SPACE)) {
+    bgm->stop();
     Task::getInstance().clear();
     m_mgr->shiftNextScene(std::make_shared<GameMain>(m_mgr));
   }

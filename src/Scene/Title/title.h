@@ -4,6 +4,10 @@
 #include "../scene.h"
 #include <memory>
 
+#include "cinder/audio/Context.h"
+#include "cinder/audio/NodeEffects.h"
+#include "cinder/audio/SamplePlayerNode.h"
+
 
 class Title : public Scene {
 private:
@@ -15,6 +19,9 @@ private:
   std::unique_ptr<Font> font2;
   std::unique_ptr<Font> font3;
   std::unique_ptr<Font> font4;
+
+  audio::BufferPlayerNodeRef bgm;
+  audio::GainNodeRef         gain;
 
   void camera();
 
