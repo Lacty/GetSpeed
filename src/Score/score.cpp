@@ -25,9 +25,9 @@ void Score::load() {
 
 void Score::saveToJson() {
   JsonTree data;
-  data.addChild(JsonTree("First", 3000));
-  data.addChild(JsonTree("Second", 200));
-  data.addChild(JsonTree("Third", 10));
+  data.addChild(JsonTree("First", m_first));
+  data.addChild(JsonTree("Second", m_second));
+  data.addChild(JsonTree("Third", m_third));
   data.write(getAppPath() / "../../assets/SaveData/save_data.json", JsonTree::WriteOptions().createDocument(false));
 }
 
@@ -36,18 +36,18 @@ void Score::setCurrent(const int& current) {
 }
 
 
-int Score::getFirst() {
+int Score::getFirst() const {
   return m_first;
 }
 
-int Score::getSecond() {
+int Score::getSecond() const {
   return m_second;
 }
 
-int Score::getTherd() {
+int Score::getThird() const {
   return m_third;
 }
 
-int Score::getCurrent() {
+int Score::getCurrent() const {
   return m_current;
 }

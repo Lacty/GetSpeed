@@ -8,13 +8,20 @@
 #include "../../Object/Camera/camera.h"
 #include "../../Object/Road/road.h"
 #include "../../Object/task.h"
+#include "../../Score/score.h"
+
+#include <iostream>
 
 
 Title::Title(SceneMgr* mgr) :
 Scene(mgr),
 m_rotate(Vec3f(180, 0, 0))
 {
-  font = std::make_unique<Font>(loadAsset("Font/planet.TTF"), 30.0f);
+  font1 = std::make_unique<Font>(loadAsset("Font/planet.TTF"), 90.f);
+  font2 = std::make_unique<Font>("", 40.f);
+  font3 = std::make_unique<Font>("", 120.f);
+  font4 = std::make_unique<Font>(loadAsset("Font/planet.TTF"), 30.f);
+  Score::getInstance().load();
 }
 
 void Title::camera() {
@@ -32,10 +39,18 @@ void Title::update() {
 }
 
 void Title::draw() {
-  Vec2f pos    = Vec2f(0, 80);
+  Vec2f pos1   = Vec2f(0, -180);
+  Vec2f pos2   = Vec2f(0, 0);
+  Vec2f pos3   = Vec2f(0, 40);
+  Vec2f pos4   = Vec2f(0, 140);
   Color color  = Color::white();
   gl::pushModelView();
   gl::rotate(m_rotate);
-  gl::drawStringCentered("Press `Space` to Start.", pos, Color(1, 0.5f, 0), *font);
+  {
+    gl::drawStringCentered("GetSpeed.", pos1, Color(1, 0.5f, 0), *font1);
+    gl::drawStringCentered("-HeightScore-", pos2, Color(0.6f, 0.6f, 0.6f), *font2);
+    gl::drawStringCentered(std::to_string(Score::getInstance().getFirst()), pos3, Color(0.2f, 0.6f, 1.f), *font3);
+    gl::drawStringCentered("Press `Space` to Start.", pos4, Color(0.6f, 0.6f, 0.6f), *font4);
+  }
   gl::popModelView();
 }

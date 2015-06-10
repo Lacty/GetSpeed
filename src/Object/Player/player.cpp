@@ -71,3 +71,7 @@ float& Player::getPitch() {
 float& Player::getSpeed() {
   return p_advance->getSpeed();
 }
+
+int Player::getDistance() const {
+  return m_pos.z * -1;
+}

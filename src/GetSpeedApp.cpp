@@ -50,8 +50,6 @@ void GetSpeedApp::setup() {
   Task::getInstance();
   Rand::randomize();
   Score::getInstance();
-  Score::getInstance().load();
-  Score::getInstance().saveToJson();
 
   //-------------------------------------------------------
   // Camera‰Šú‰»

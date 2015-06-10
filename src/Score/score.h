@@ -12,7 +12,6 @@ private:
   int m_third;
   int m_current;
 
-  void sort();
 
 public:
   static Score& getInstance() {
@@ -24,8 +23,10 @@ public:
   void saveToJson();
   void setCurrent(const int&);
 
-  int getFirst();
-  int getSecond();
-  int getTherd();
-  int getCurrent();
+  void sort();
+
+  int getFirst() const;
+  int getSecond() const;
+  int getThird() const;
+  int getCurrent() const;
 };

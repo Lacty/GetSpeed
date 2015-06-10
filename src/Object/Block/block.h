@@ -9,7 +9,7 @@ class Player;
 
 class Block : public Object {
 private:
-  enum { Block_Num = 4 };
+  enum { Block_Num = 6 };
   struct sBlock {
     Vec3f pos;
     Vec3f size;

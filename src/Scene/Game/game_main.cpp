@@ -1,5 +1,6 @@
 
-#include "../Title/title.h"
+//#include "../Title/title.h"
+#include "../Result/result.h"
 #include "game_main.h"
 #include "../../System/scene_mgr.h"
 #include "../../MyLib/graph.h"
@@ -21,6 +22,7 @@
 #include "../../Object/Player/player_life.h"
 
 #include "../../Object/Camera/camera.h"
+#include "../../Score/score.h"
 
 
 GameMain::GameMain(SceneMgr* mgr) :
@@ -94,7 +96,8 @@ void GameMain::update() {
 
   if (Key::get().isPush(KeyEvent::KEY_RETURN)) {
     Task::getInstance().clear();
-    m_mgr->shiftNextScene(std::make_shared<Title>(m_mgr));
+    Score::getInstance().setCurrent(m_player->getDistance());
+    m_mgr->shiftNextScene(std::make_shared<Result>(m_mgr));
   }
 }
 

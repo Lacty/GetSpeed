@@ -37,4 +37,5 @@ public:
   Vec3f& getRotate();
   float& getPitch();
   float& getSpeed();
+  int getDistance() const;
 };

@@ -8,7 +8,13 @@
 class Title : public Scene {
 private:
   Vec3f m_rotate;
-  std::unique_ptr<Font> font;
+
+  // ƒiƒ“ƒoƒŠƒ“ƒO‚¢‚­‚È‚¢
+  // ŽžŠÔ‚È‚¢
+  std::unique_ptr<Font> font1;
+  std::unique_ptr<Font> font2;
+  std::unique_ptr<Font> font3;
+  std::unique_ptr<Font> font4;
 
   void camera();
 
