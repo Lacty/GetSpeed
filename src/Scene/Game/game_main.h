@@ -8,6 +8,8 @@
 #include "cinder/audio/NodeEffects.h"
 #include "cinder/audio/SamplePlayerNode.h"
 
+#include "../../Object/StarEffect/star.h"
+
 
 class Road;
 class Player;

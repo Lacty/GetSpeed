@@ -29,7 +29,6 @@ private:
   bool isSpeedUp;
   void moveCamera();
 
-  bool isCollisionToPlayer();
 
 public:
   Booster();
@@ -38,5 +37,6 @@ public:
   void update();
   void draw();
 
+  bool isCollisionToPlayer();
   float getEyePosZ() const;
 };

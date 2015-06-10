@@ -88,6 +88,9 @@
     <Filter Include="Assets\SaveData">
       <UniqueIdentifier>{063563d6-a797-4549-b01c-15bebf53ebc2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\StarEffect">
+      <UniqueIdentifier>{474141d9-489f-46e6-9a27-d72e3257f471}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\GetSpeedApp.cpp">
@@ -179,6 +182,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Score\score.cpp">
       <Filter>Score</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object\StarEffect\star.cpp">
+      <Filter>Object\StarEffect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +286,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Score\score.h">
       <Filter>Score</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object\StarEffect\star.h">
+      <Filter>Object\StarEffect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
