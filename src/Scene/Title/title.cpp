@@ -86,6 +86,9 @@ void Title::draw() {
     gl::drawStringCentered("-HeightScore-", pos2, Color(0.6f, 0.6f, 0.6f), *font2);
     gl::drawStringCentered(std::to_string(Score::getInstance().getFirst()), pos3, Color(0.2f, 0.6f, 1.f), *font3);
     gl::drawStringCentered("Press `Space` to Start.", pos4, ColorA(0.6f, 0.6f, 0.6f, std::abs(sin(alpha_count))), *font4);
+    gl::translate(Vec2f(330, 200));
+    gl::scale(Vec2f(0.6f, 0.6f));
+    gl::drawStringRight("Author by Yanai", Vec2f::zero(), Color(1.f, 0.4f, 0.4f), *font2);
   }
   gl::popModelView();
   shiftScene();
