@@ -57,6 +57,8 @@ void Title::shiftScene() {
   gl::drawSolidCircle(Vec2f::zero(), 100, 0);
   gl::popModelView();
 
+  gain->setValue(0.14f - fade_count * 0.1f);
+
   if (fade_count >= 1.0f) {
     bgm->stop();
     Task::getInstance().clear();
