@@ -56,14 +56,14 @@ fade_count(0)
   m_odo_meter = std::make_shared<OdoMeter>();
   Task::getInstance().add(m_odo_meter->getName(), m_odo_meter);
 
+  m_booster = std::make_shared<Booster>();
+  Task::getInstance().add(m_booster->getName(), m_booster);
+
   m_stage_ring = std::make_shared<StageRing>();
   Task::getInstance().add(m_stage_ring->getName(), m_stage_ring);
 
   m_counter = std::make_shared<TimeCounter>();
   Task::getInstance().add(m_counter->getName(), m_counter);
-
-  m_booster = std::make_shared<Booster>();
-  Task::getInstance().add(m_booster->getName(), m_booster);
 
   m_block = std::make_shared<Block>();
   Task::getInstance().add(m_block->getName(), m_block);

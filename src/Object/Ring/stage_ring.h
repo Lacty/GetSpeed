@@ -6,6 +6,7 @@
 
 
 class Player;
+class Booster;
 
 class StageRing : public Object {
 private:
@@ -17,7 +18,13 @@ private:
   Vec3f m_scale;
 
   std::shared_ptr<Player> p_player;
+  std::shared_ptr<Booster> p_booster;
 
+  float count;
+  float red;
+  float green;
+  bool isBoost;
+  void boost();
   void loop();
 
 public:

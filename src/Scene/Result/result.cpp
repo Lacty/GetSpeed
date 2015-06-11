@@ -6,6 +6,7 @@
 #include "../../Score/score.h"
 #include "../../MyLib/key.h"
 #include "../Title/title.h"
+#include "cinder/Rand.h"
 #include <iostream>
 #include <memory>
 
@@ -18,10 +19,22 @@ font1(std::make_unique<Font>("", 80)),
 font2(std::make_unique<Font>("", 80))
 {
   Score::getInstance().sort();
+  Anim<Vec2f> font_end[Sentinel];
+  Anim<Vec2f> score_end[Sentinel];
   for (int i = 0; i < Sentinel; ++i) {
-    font_pos[i] = Vec2f(-330, -180 + (i * 100));
-    score_pos[i] = Vec2f(100, -180 + (i * 100));
+    score_end[i] = Vec2f(100, -180 + (i * 100));
+    score_pos[i] = Vec2f(Rand::randFloat(-500, 500), Rand::randFloat(-500, 500));
+    timeline().apply(&score_pos[i],
+                     score_end[i].value(),
+                     Rand::randFloat(0.f, 3.f), easeOutCirc);
+
+    font_end[i] = Vec2f(-330, -180 + (i * 100));
+    font_pos[i] = Vec2f(Rand::randFloat(-500, 500), Rand::randFloat(-500, 500));
+    timeline().apply(&font_pos[i],
+                     font_end[i].value(),
+                     Rand::randFloat(0.f, 3.f), easeOutCirc);
   }
+
 
   auto ctx = audio::Context::master();
 

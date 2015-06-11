@@ -15,7 +15,10 @@
 
 Title::Title(SceneMgr* mgr) :
 Scene(mgr),
-m_rotate(Vec3f(180, 0, 0))
+m_rotate(Vec3f(180, 0, 0)),
+isShiftScene(false),
+alpha_count(0.f),
+fade_count(0.f)
 {
   font1 = std::make_unique<Font>(loadAsset("Font/planet.TTF"), 90.f);
   font2 = std::make_unique<Font>("", 40.f);
@@ -23,6 +26,9 @@ m_rotate(Vec3f(180, 0, 0))
   font4 = std::make_unique<Font>(loadAsset("Font/planet.TTF"), 30.f);
   Score::getInstance().load();
 
+  eye = Vec3f(0, 0, 700);
+  target = Vec3f::zero();
+  GameCamera::getInstance().cam().lookAt(eye, target);
   
   auto ctx = audio::Context::master();
 
@@ -41,18 +47,27 @@ m_rotate(Vec3f(180, 0, 0))
   bgm->start();
 }
 
-void Title::camera() {
-  Vec3f eye = Vec3f(0, 0, 700);
-  Vec3f target = Vec3f::zero();
-  GameCamera::getInstance().cam().lookAt(eye, target);
-}
+void Title::shiftScene() {
+  if (!isShiftScene) return;
+  fade_count += 0.01f;
+  gl::pushModelView();
+  gl::translate(Vec3f(0, 0, 680));
+  gl::rotate(Vec3f(0, 0, 0));
+  gl::color(ColorA(1, 1, 1, fade_count));
+  gl::drawSolidCircle(Vec2f::zero(), 100, 0);
+  gl::popModelView();
 
-void Title::update() {
-  camera();
-  if (Key::get().isPush(KeyEvent::KEY_SPACE)) {
+  if (fade_count >= 1.0f) {
     bgm->stop();
     Task::getInstance().clear();
     m_mgr->shiftNextScene(std::make_shared<GameMain>(m_mgr));
+  }
+}
+
+void Title::update() {
+  alpha_count += 0.03f;
+  if (Key::get().isPush(KeyEvent::KEY_SPACE)) {
+    isShiftScene = true;
   }
 }
 
@@ -68,7 +83,8 @@ void Title::draw() {
     gl::drawStringCentered("GetSpeed.", pos1, Color(1, 0.5f, 0), *font1);
     gl::drawStringCentered("-HeightScore-", pos2, Color(0.6f, 0.6f, 0.6f), *font2);
     gl::drawStringCentered(std::to_string(Score::getInstance().getFirst()), pos3, Color(0.2f, 0.6f, 1.f), *font3);
-    gl::drawStringCentered("Press `Space` to Start.", pos4, Color(0.6f, 0.6f, 0.6f), *font4);
+    gl::drawStringCentered("Press `Space` to Start.", pos4, ColorA(0.6f, 0.6f, 0.6f, std::abs(sin(alpha_count))), *font4);
   }
   gl::popModelView();
+  shiftScene();
 }

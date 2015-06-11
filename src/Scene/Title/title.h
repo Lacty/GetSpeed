@@ -15,6 +15,7 @@ private:
 
   // ƒiƒ“ƒoƒŠƒ“ƒO‚¢‚­‚È‚¢
   // ŽžŠÔ‚È‚¢
+  float alpha_count;
   std::unique_ptr<Font> font1;
   std::unique_ptr<Font> font2;
   std::unique_ptr<Font> font3;
@@ -23,7 +24,11 @@ private:
   audio::BufferPlayerNodeRef bgm;
   audio::GainNodeRef         gain;
 
-  void camera();
+  Vec3f eye;
+  Vec3f target;
+  bool isShiftScene;
+  float fade_count;
+  void shiftScene();
 
 public:
   Title(SceneMgr*);

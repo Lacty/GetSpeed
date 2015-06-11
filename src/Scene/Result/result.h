@@ -24,8 +24,8 @@ private:
     Third,
     Sentinel
   };
-  Vec2f font_pos[Sentinel];
-  Vec2f score_pos[Sentinel];
+  Anim<Vec2f> font_pos[Sentinel];
+  Anim<Vec2f> score_pos[Sentinel];
   float count;
 
   Star star;
