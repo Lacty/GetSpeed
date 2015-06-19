@@ -13,13 +13,9 @@ class Title : public Scene {
 private:
   Vec3f m_rotate;
 
-  // ƒiƒ“ƒoƒŠƒ“ƒO‚¢‚­‚È‚¢
-  // ŽžŠÔ‚È‚¢
   float alpha_count;
-  std::unique_ptr<Font> font1;
-  std::unique_ptr<Font> font2;
-  std::unique_ptr<Font> font3;
-  std::unique_ptr<Font> font4;
+  Font default_font;
+  Font planet_font;
 
   audio::BufferPlayerNodeRef bgm;
   audio::GainNodeRef         gain;

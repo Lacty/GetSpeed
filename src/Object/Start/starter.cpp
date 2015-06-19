@@ -3,7 +3,7 @@
 
 
 Starter::Starter() :
-font(std::make_unique<Font>(loadAsset("Font/planet.TTF"), 54.0f)),
+planet_font(loadAsset("Font/planet.TTF"), 54.0f),
 m_count(0),
 state(Status::Set)
 {
@@ -62,21 +62,21 @@ void Starter::draw() {
       se_set->start();
       isSe[Set] = true;
     }
-    gl::drawStringCentered("Set.", pos, Color(0.4f, 0.8f, 0.4f), *font);
+    gl::drawStringCentered("Set.", pos, Color(0.4f, 0.8f, 0.4f), planet_font);
     break;
   case Starter::Ready:
     if (!isSe[Ready]) {
       se_ready->start();
       isSe[Ready] = true;
     }
-    gl::drawStringCentered("Ready?.", pos, Color(0.4f, 0.4f, 0.8f), *font);
+    gl::drawStringCentered("Ready?.", pos, Color(0.4f, 0.4f, 0.8f), planet_font);
     break;
   case Starter::Go:
     if (!isSe[Go]) {
       se_go->start();
       isSe[Go] = true;
     }
-    gl::drawStringCentered("Go!.", pos, Color(0.8, 0.4f, 0.4f), *font);
+    gl::drawStringCentered("Go!.", pos, Color(0.8, 0.4f, 0.4f), planet_font);
     break;
   default:
     break;

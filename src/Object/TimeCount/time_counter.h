@@ -16,7 +16,7 @@ private:
 
   bool isStart;
 
-  std::unique_ptr<Font> p_font;
+  Font default_font;
   std::shared_ptr<Player> p_player;
 
   typedef std::chrono::time_point<std::chrono::system_clock, std::chrono::system_clock::duration> time_point;

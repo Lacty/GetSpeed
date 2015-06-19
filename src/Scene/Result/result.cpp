@@ -15,8 +15,7 @@ Result::Result(SceneMgr* mgr) :
 Scene(mgr),
 count(0.f),
 m_rotate(Vec3f(180, 0, 0)),
-font1(std::make_unique<Font>("", 80)),
-font2(std::make_unique<Font>("", 80))
+default_font("", 80.f)
 {
   Score::getInstance().sort();
   Anim<Vec2f> font_end[Sentinel];
@@ -63,7 +62,7 @@ void Result::camera() {
 void Result::update() {
   camera();
   star.update();
-  if (Key::get().isPush(KeyEvent::KEY_RETURN)) {
+  if (Key::get().isPush(KeyEvent::KEY_SPACE)) {
     bgm->stop();
     Score::getInstance().saveToJson();
     Task::getInstance().clear();
@@ -81,31 +80,31 @@ void Result::draw() {
 
     //-----------------------------------------------------
     // Current
-    gl::drawString("Current", font_pos[Current], Color(std::abs(sin(count)), std::abs(sin(count)), std::abs(sin(count))), *font1);
+    gl::drawString("Current", font_pos[Current], Color(std::abs(sin(count)), std::abs(sin(count)), std::abs(sin(count))), default_font);
     gl::pushModelView();
     gl::translate(Vec2f(18, -22));
     gl::scale(Vec2f(0.8f, 0.8f));
     gl::drawStringCentered(std::to_string(Score::getInstance().getCurrent()),
-                           score_pos[Current], Color(0.3f, 0.3f, 0.3f), *font2);
+                           score_pos[Current], Color(0.3f, 0.3f, 0.3f), default_font);
     gl::popModelView();
 
     //-----------------------------------------------------
     // First
-    gl::drawString("First", font_pos[First], Color(std::abs(sin(count)*0.6f + 0.2f), std::abs(sin(count)), std::abs(sin(count))), *font1);
+    gl::drawString("First", font_pos[First], Color(std::abs(sin(count)*0.6f + 0.2f), std::abs(sin(count)), std::abs(sin(count))), default_font);
     gl::drawStringCentered(std::to_string(Score::getInstance().getFirst()),
-                           score_pos[First], Color(0.3f, 0.3f, 0.3f), *font2);
+                           score_pos[First], Color(0.3f, 0.3f, 0.3f), default_font);
 
     //-----------------------------------------------------
     // Second
-    gl::drawString("Second", font_pos[Second], Color(std::abs(sin(count)), std::abs(sin(count)*0.6f + 0.2f), std::abs(sin(count))), *font1);
+    gl::drawString("Second", font_pos[Second], Color(std::abs(sin(count)), std::abs(sin(count)*0.6f + 0.2f), std::abs(sin(count))), default_font);
     gl::drawStringCentered(std::to_string(Score::getInstance().getSecond()),
-                           score_pos[Second], Color(0.3f, 0.3f, 0.3f), *font2);
+                           score_pos[Second], Color(0.3f, 0.3f, 0.3f), default_font);
 
     //-----------------------------------------------------
     // Third
-    gl::drawString("Third", font_pos[Third], Color(std::abs(sin(count)), std::abs(sin(count)), std::abs(sin(count)*0.6f + 0.2f)), *font1);
+    gl::drawString("Third", font_pos[Third], Color(std::abs(sin(count)), std::abs(sin(count)), std::abs(sin(count)*0.6f + 0.2f)), default_font);
     gl::drawStringCentered(std::to_string(Score::getInstance().getThird()),
-                           score_pos[Third], Color(0.3f, 0.3f, 0.3f), *font2);
+                           score_pos[Third], Color(0.3f, 0.3f, 0.3f), default_font);
   }
   gl::popModelView();
 }

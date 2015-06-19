@@ -11,7 +11,7 @@
 
 class Starter : public ly::noncopyable {
 private:
-  std::shared_ptr<Font> font;
+  Font planet_font;
   int m_count;
 
   enum Status {

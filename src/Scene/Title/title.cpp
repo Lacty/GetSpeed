@@ -16,14 +16,12 @@
 Title::Title(SceneMgr* mgr) :
 Scene(mgr),
 m_rotate(Vec3f(180, 0, 0)),
-isShiftScene(false),
 alpha_count(0.f),
-fade_count(0.f)
+default_font("", 120.f),
+planet_font(loadAsset("Font/planet.TTF"), 120.f),
+fade_count(0.f),
+isShiftScene(false)
 {
-  font1 = std::make_unique<Font>(loadAsset("Font/planet.TTF"), 90.f);
-  font2 = std::make_unique<Font>("", 40.f);
-  font3 = std::make_unique<Font>("", 120.f);
-  font4 = std::make_unique<Font>(loadAsset("Font/planet.TTF"), 30.f);
   Score::getInstance().load();
 
   eye = Vec3f(0, 0, 700);
@@ -74,21 +72,49 @@ void Title::update() {
 }
 
 void Title::draw() {
-  Vec2f pos1   = Vec2f(0, -180);
+  Vec2f pos1   = Vec2f(0, -240);
   Vec2f pos2   = Vec2f(0, 0);
   Vec2f pos3   = Vec2f(0, 40);
-  Vec2f pos4   = Vec2f(0, 140);
+  Vec2f pos4   = Vec2f(0, 400);
   Color color  = Color::white();
   gl::pushModelView();
   gl::rotate(m_rotate);
   {
-    gl::drawStringCentered("GetSpeed.", pos1, Color(1, 0.5f, 0), *font1);
-    gl::drawStringCentered("-HeightScore-", pos2, Color(0.6f, 0.6f, 0.6f), *font2);
-    gl::drawStringCentered(std::to_string(Score::getInstance().getFirst()), pos3, Color(0.2f, 0.6f, 1.f), *font3);
-    gl::drawStringCentered("Press `Space` to Start.", pos4, ColorA(0.6f, 0.6f, 0.6f, std::abs(sin(alpha_count))), *font4);
-    gl::translate(Vec2f(330, 200));
-    gl::scale(Vec2f(0.6f, 0.6f));
-    gl::drawStringRight("Author by Yanai", Vec2f::zero(), Color(1.f, 0.4f, 0.4f), *font2);
+    gl::pushModelView();
+    {
+      gl::scale(Vec2f(0.74f, 0.74f));
+      gl::drawStringCentered("GetSpeed.", pos1, Color(1, 0.5f, 0), planet_font);
+    }
+    gl::popModelView();
+
+    gl::pushModelView();
+    {
+      gl::scale(Vec2f(0.3f, 0.3f));
+      gl::drawStringCentered("-HighScore-", pos2, Color(0.6f, 0.6f, 0.6f), default_font);
+    }
+    gl::popModelView();
+
+    gl::pushModelView();
+    {
+      gl::scale(Vec2f(0.8f, 0.8f));
+      gl::drawStringCentered(std::to_string(Score::getInstance().getFirst()), pos3, Color(0.2f, 0.6f, 1.f), default_font);
+    }
+    gl::popModelView();
+
+    gl::pushModelView();
+    {
+      gl::scale(Vec2f(0.3f, 0.3f));
+      gl::drawStringCentered("Push `Space` to Start.", pos4, ColorA(0.6f, 0.6f, 0.6f, std::abs(sin(alpha_count))), planet_font);
+    }
+    gl::popModelView();
+
+    gl::pushModelView();
+    {
+      gl::translate(Vec2f(330, 200));
+      gl::scale(Vec2f(0.24f, 0.24f));
+      gl::drawStringRight("Author by Yanai", Vec2f::zero(), Color(1.f, 0.4f, 0.4f), default_font);
+    }
+    gl::popModelView();
   }
   gl::popModelView();
   shiftScene();

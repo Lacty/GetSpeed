@@ -10,7 +10,7 @@ m_pos(Vec3f::zero()),
 m_rotate(Vec3f(180, 0, 20)),
 m_scale(Vec3f(1, 1, 1)),
 isStart(false),
-p_font(std::make_unique<Font>(Font("", 60)))
+default_font("", 60.f)
 {
   m_name = std::string("Counter");
   p_player = std::dynamic_pointer_cast<Player>(Task::getInstance().find("Player"));
@@ -60,7 +60,7 @@ void TimeCounter::draw() {
     gl::translate(m_pos);
     gl::scale(m_scale);
     gl::rotate(m_rotate);
-    gl::drawStringCentered(count(), Vec2f::zero(), Color(0.6, 0.6, 0.6), *p_font);
+    gl::drawStringCentered(count(), Vec2f::zero(), Color(0.6, 0.6, 0.6), default_font);
   }
   gl::popModelView();
 }

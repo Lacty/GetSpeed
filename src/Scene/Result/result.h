@@ -14,8 +14,7 @@
 class Result : public Scene {
 private:
   Vec3f m_rotate;
-  std::unique_ptr<Font> font1; // ƒiƒ“ƒoƒŠƒ“ƒO‚¢‚­‚È‚¢
-  std::unique_ptr<Font> font2; // ŠÔ‚È‚¢
+  Font default_font;
   
   enum {
     Current,
