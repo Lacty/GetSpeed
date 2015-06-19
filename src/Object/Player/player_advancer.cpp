@@ -35,9 +35,9 @@ void PlayerAdvancer::speedManager() {
 
 void PlayerAdvancer::move() {
   if (Key::get().isPress(KeyEvent::KEY_w) && p_life->getLife() > 0) {
-    //-----------------------------------------------------
-    // デバッグ用 x を押すとスピードUp
+#ifdef _DEBUG
     if (Key::get().isPush(KeyEvent::KEY_x)) m_speed.z = 500;
+#endif
     m_velocity.z += m_speed.z;
   } else if (m_velocity.z > 1) {
     m_velocity.z *= 0.98f;

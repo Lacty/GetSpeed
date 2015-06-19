@@ -50,10 +50,6 @@ void GetSpeedApp::setup() {
   Task::getInstance();
   Rand::randomize();
   Score::getInstance();
-
-  //-------------------------------------------------------
-  // Camera初期化
-
   GameCamera::getInstance().create(CameraPersp(getWindowWidth(), getWindowHeight(), 35.f, 0.5f, 5000.f));
 
   scene = std::make_unique<SceneMgr>();
@@ -76,3 +72,9 @@ void GetSpeedApp::draw() {
 }
 
 CINDER_APP_NATIVE(GetSpeedApp, RendererGl)
+
+//-------------------------------------------------//
+//              DEBUG用チートコマンド            　　//
+//               z:life増加                        //
+//               x:スピードアップ                   //
+//-------------------------------------------------//

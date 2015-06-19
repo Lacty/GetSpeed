@@ -29,9 +29,9 @@ void PlayerLife::lifeManage() {
       --m_life;
     }
   }
-  //-------------------------------------------------------
-  // デバッグ用 z を押すとLifeが増える
-  if (Key::get().isPush(KeyEvent::KEY_z)) m_life++;
+#ifdef _DEBUG
+   if (Key::get().isPush(KeyEvent::KEY_z)) m_life++;
+#endif
 }
 
 void PlayerLife::moveGuage() {
